@@ -1,5 +1,5 @@
 import React from 'react'
-import { FolderKanban, LogOut, Settings } from 'lucide-react'
+import { FolderKanban, LogOut, Logs, Settings } from 'lucide-react'
 
 const Sidebar = () => {
   return (
@@ -8,6 +8,10 @@ const Sidebar = () => {
         <li className="mb-2 flex gap-2">
           <FolderKanban className='text-gray-700'/>
           <a href="#" className="text-gray-700">Projects</a>
+        </li>
+        <li className="mb-2 flex gap-2">
+          <Logs className='text-gray-700'/>
+          <a href="#" className="text-gray-700">Logs</a>
         </li>
         <li className="mb-2 flex gap-2">
           <Settings className='text-gray-700'/>
