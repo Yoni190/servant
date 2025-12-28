@@ -3,7 +3,7 @@ import { FolderKanban, LogOut, Settings } from 'lucide-react'
 
 const Sidebar = () => {
   return (
-    <div className="bg-gray-100 w-64 p-4 min-h-screen">
+    <div className="bg-gray-100 w-64 p-4">
       <ul className='flex flex-col gap-5'>
         <li className="mb-2 flex gap-2">
           <FolderKanban className='text-gray-700'/>

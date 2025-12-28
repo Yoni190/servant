@@ -21,9 +21,9 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex">
+      <div className="flex flex-1">
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6">
 
@@ -61,6 +61,14 @@ const Home = () => {
           </div>
 
           {/* Recent Logs */}
+          <div className="bg-white p-4 rounded shadow">
+            <h2 className="font-semibold mb-3">Recent Activity</h2>
+            <ul className="space-y-2 text-sm">
+              <li>Test added Chapa to Project Alpha</li>
+              <li>Test invited Test to Project Beta</li>
+              <li>Test's role changed to manager in Project gamma</li>
+            </ul>
+          </div>
         </main>
       </div>
     </div>
