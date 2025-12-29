@@ -73,7 +73,9 @@ const Projects = () => {
                                 <td className='p-3'>{project.services}</td>
                                 <td className='p-3'>{project.members}</td>
                                 <td className='p-3 space-x-3'>
-                                    <button className="text-blue-500 hover:underline hover:cursor-pointer">Edit</button>
+                                    <Link to={`/project/edit/${project.id}`}>
+                                        <button className="text-blue-500 hover:underline hover:cursor-pointer">Edit</button>
+                                    </Link>
                                     <button className="text-red-500 hover:underline hover:cursor-pointer">Delete</button>
                                 </td>
                             </tr>

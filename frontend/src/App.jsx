@@ -4,6 +4,7 @@ import Register from './pages/Register'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import AddProject from './pages/AddProject'
+import EditProject from './pages/EditProject'
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/add" element={<AddProject />} />
+        <Route path="/project/edit/:id" element={<EditProject />} />
       </Routes>
     </BrowserRouter>
   )

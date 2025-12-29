@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const ProjectForm = () => {
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [services, setServices] = useState([])
+const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
+    const [title, setTitle] = useState(title_pass || '')
+    const [description, setDescription] = useState(description_pass || '')
+    const [services, setServices] = useState(services_pass || [])
     const [errors, setErrors] = useState([{}])
 
     const navigate = useNavigate()
@@ -97,7 +97,7 @@ const ProjectForm = () => {
                 className="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-medium transition"
                 onClick={handleSubmit}
             >
-                Create Project
+                Save Project
             </button>
         </form>
   )
