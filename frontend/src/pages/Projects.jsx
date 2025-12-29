@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
+import { Link } from 'react-router-dom'
 
 const Projects = () => {
 
@@ -19,7 +20,9 @@ const Projects = () => {
             {/* Title */}
             <div className='flex justify-between'>
                 <h1 className='text-2xl font-semibold'>Projects</h1>
-                <button className='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600'>Add New Project</button>
+                <Link to="/projects/add">
+                    <button className='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600'>Add New Project</button>
+                </Link>
             </div>
 
             {/* Body */}
