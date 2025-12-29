@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { toast } from 'react-toastify';
+
 
 const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
     const [title, setTitle] = useState(title_pass || '')
     const [description, setDescription] = useState(description_pass || '')
     const [services, setServices] = useState(services_pass || [])
     const [errors, setErrors] = useState([{}])
+
+    const notify = () => toast.success("Project Data Saved!");
 
     const navigate = useNavigate()
 
@@ -28,6 +32,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
         // Handle form submission logic here
         console.log({ title, description, services })
         navigate('/projects')
+        notify()
     }
 
     const handleServicesChange = (e) => {
@@ -99,6 +104,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
             >
                 Save Project
             </button>
+            
         </form>
   )
 }

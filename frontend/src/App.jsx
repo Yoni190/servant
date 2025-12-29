@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 import AddProject from './pages/AddProject'
 import EditProject from './pages/EditProject'
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -22,6 +23,10 @@ const App = () => {
         <Route path="/projects/add" element={<AddProject />} />
         <Route path="/project/edit/:id" element={<EditProject />} />
       </Routes>
+
+      <ToastContainer
+        theme='light'
+      />
     </BrowserRouter>
   )
 }
