@@ -6,10 +6,25 @@ const ProjectForm = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [services, setServices] = useState([])
+    const [errors, setErrors] = useState([{}])
+
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        const newErrors = []
+        if (!title) {
+            newErrors.push({ field: 'title', message: 'Title is required' })
+        } if (!description) {
+            newErrors.push({ field: 'description', message: 'Description is required' })
+        } if (!services.length) {
+            newErrors.push({ field: 'services', message: 'At least one service is required' })
+        }
+        if (newErrors.length > 0) {
+            setErrors(newErrors)
+            return
+        }
         // Handle form submission logic here
         console.log({ title, description, services })
         navigate('/projects')
@@ -34,6 +49,11 @@ const ProjectForm = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
+                {errors.find(error => error.field === 'title') && (
+                    <p className="text-red-500 text-xs mt-2">
+                        {errors.find(error => error.field === 'title').message}
+                    </p>
+                )}
             </div>
 
             <div className="mb-4">
@@ -48,6 +68,11 @@ const ProjectForm = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
+                {errors.find(error => error.field === 'description') && (
+                    <p className="text-red-500 text-xs mt-2">
+                        {errors.find(error => error.field === 'description').message}
+                    </p>
+                )}
             </div>
 
             <div className="mb-4">
@@ -60,18 +85,11 @@ const ProjectForm = () => {
                     value={services}
                     onChange={(e) => handleServicesChange(e)}
                 />
-            </div>
-
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="teamMembers">
-                    Team Members
-                </label>
-                <select name="teamMembers" id="teamMembers" className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                    <option value="">Select team members</option>
-                    <option value="member1">Member 1</option>
-                    <option value="member2">Member 2</option>
-                    <option value="member3">Member 3</option>
-                </select>
+                {errors.find(error => error.field === 'services') && (
+                    <p className="text-red-500 text-xs mt-2">
+                        {errors.find(error => error.field === 'services').message}
+                    </p>
+                )}
             </div>
 
             <button
