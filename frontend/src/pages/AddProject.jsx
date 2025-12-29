@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
+import ProjectForm from '../components/ProjectForm'
+
 
 
 const AddProject = () => {
@@ -11,6 +13,7 @@ const AddProject = () => {
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6">
             <h1 className='text-2xl font-semibold'>Add New Project</h1>
+            <ProjectForm />
         </main>
      </div>
     </div>
