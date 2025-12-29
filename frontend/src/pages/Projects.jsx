@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Projects = () => {
 
@@ -10,6 +11,23 @@ const Projects = () => {
         {id: 2, title: "Beta", services: 3, members: 4},
         {id: 3, title: "Gamma", services: 8, members: 2}
     ]
+
+    const handleDelete = (projectId) => {
+
+        Swal.fire({
+            title: "Warning!",
+            text: "Are you sure you want to delete this project?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Proceed with deletion logic here
+                console.log(`Project with ID ${projectId} deleted.`);
+                Swal.fire("Deleted!", "The project has been deleted.", "success");
+            }
+        })
+    }
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -76,7 +94,7 @@ const Projects = () => {
                                     <Link to={`/project/edit/${project.id}`}>
                                         <button className="text-blue-500 hover:underline hover:cursor-pointer">Edit</button>
                                     </Link>
-                                    <button className="text-red-500 hover:underline hover:cursor-pointer">Delete</button>
+                                    <button className="text-red-500 hover:underline hover:cursor-pointer" onClick={() => handleDelete(project.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
