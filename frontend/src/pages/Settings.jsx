@@ -86,7 +86,10 @@ const Settings = () => {
             <div>
                 <h2 className='text-xl font-semibold dark:text-white'>Language</h2>
                 <label htmlFor="language" className='mt-4 block dark:text-white'>Select Language</label>
-                <select name="language" id="language" className='border rounded w-full p-2 mt-2 dark:text-white'>
+                <select name="language" id="language" className='border rounded w-full p-2 mt-2 
+                                border rounded p-2
+                                bg-white text-gray-900
+                                dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700'>
                     <option value="en">English</option>
                     <option value="ar">العربية</option>
                 </select>
