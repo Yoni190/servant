@@ -54,6 +54,11 @@ const Settings = () => {
                 })
     }
 
+    const handleLanguageChange = (lang) => {
+
+        i18n.changeLanguage(lang);
+    }
+
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -102,16 +107,17 @@ const Settings = () => {
                 <h2 className='text-xl font-semibold dark:text-white'>{t('language')}</h2>
                 <label htmlFor="language" className='mt-4 block dark:text-white'>{t('selectLanguage')}</label>
 
-                <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
-                onClick={() => i18n.changeLanguage('en')}
-                >
-                    {t('english')}
-                </button>
-
-                <button className='ml-4 mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
-                onClick={() => i18n.changeLanguage('ar')}>
-                    {t('arabic')}
-                </button>
+                <div className="flex gap-4">
+                    <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
+                    onClick={() => handleLanguageChange('en')}
+                    >
+                        {t('english')}
+                    </button>
+                    <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
+                    onClick={() => handleLanguageChange('ar')}>
+                        {t('arabic')}
+                    </button>
+                </div>
             </div>
 
             {/* Theme */}

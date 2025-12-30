@@ -8,10 +8,20 @@ import EditProject from './pages/EditProject'
 import { ToastContainer } from 'react-toastify'
 import Logs from './pages/Logs'
 import Settings from './pages/Settings'
+import { useTranslation } from 'react-i18next'
+import { useEffect } from 'react'
+
 
 
 
 const App = () => {
+  
+  const { i18n } = useTranslation()
+
+  useEffect(() => {
+    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr'
+  }, [i18n.language])
+
   
 
   return (
