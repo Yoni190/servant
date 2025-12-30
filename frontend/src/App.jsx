@@ -7,7 +7,7 @@ import AddProject from './pages/AddProject'
 import EditProject from './pages/EditProject'
 import { ToastContainer } from 'react-toastify'
 import Logs from './pages/Logs'
-
+import Settings from './pages/Settings'
 
 
 
@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/projects/add" element={<AddProject />} />
         <Route path="/project/edit/:id" element={<EditProject />} />
         <Route path="/logs" element={<Logs />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
 
       <ToastContainer
