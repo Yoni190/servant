@@ -9,6 +9,21 @@ const Settings = () => {
 
     const navigate = useNavigate()
 
+    const handleDarkModeToggle = (mode) => {
+        if (mode === 'dark') {
+            localStorage.theme = "dark";
+        } else {
+            localStorage.theme = "light";
+        }
+
+        document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+
+    }
+
     const handleDelete = () => {
         Swal.fire({
                     title: "Warning!",
@@ -34,7 +49,7 @@ const Settings = () => {
       <div className="flex flex-1">
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6">
-            <h1 className='text-2xl font-semibold'>Settings</h1>
+            <h1 className='text-2xl font-semibold text-black dark:text-white'>Settings</h1>
             {/* Profile Info */}
             <form action="#">
                 <h2 className='text-xl font-semibold'>Profile</h2>
@@ -81,10 +96,16 @@ const Settings = () => {
             <div>
                 <h2 className='text-xl font-semibold'>Theme</h2>
                 <label htmlFor="theme" className='mt-4 block'>Select Theme</label>
-                <select name="theme" id="theme" className='border rounded w-full p-2 mt-2'>
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
+                <div className="flex gap-4 mt-2">
+                    <button 
+                        className='rounded-2xl border p-4 hover:cursor-pointer hover:border-blue-500 hover:shadow'
+                        onClick={() => handleDarkModeToggle('light')}
+                        ></button>
+                    <button 
+                        className='rounded-2xl border p-4 bg-black hover:cursor-pointer hover:border-blue-500 hover:shadow'
+                        onClick={() => handleDarkModeToggle('dark')}
+                        ></button>
+                </div>
             </div>
 
             {/* Delete Account */}
