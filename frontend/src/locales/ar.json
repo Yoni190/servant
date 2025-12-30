@@ -67,5 +67,6 @@
   "descriptionRequired": "الوصف مطلوب",
   "servicesRequired": "مطلوب خدمة واحدة على الأقل",
   "saveProject": "حفظ المشروع",
-  "projectDataSaved": "تم حفظ بيانات المشروع بنجاح"
+  "projectDataSaved": "تم حفظ بيانات المشروع بنجاح",
+  "editProject": "تعديل المشروع"
 }

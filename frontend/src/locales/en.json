@@ -67,5 +67,6 @@
   "descriptionRequired": "Description is required",
   "servicesRequired": "At least one service is required",
   "saveProject": "Save Project",
-  "projectDataSaved": "Project data saved successfully"
+  "projectDataSaved": "Project data saved successfully",
+  "editProject": "Edit Project"
 }
