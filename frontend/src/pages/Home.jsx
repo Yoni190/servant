@@ -25,7 +25,7 @@ const Home = () => {
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-6 bg-gray-50 space-y-6">
+        <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
 
           {/* Stat Cards */}
           <div className="grid grid-cols-3 gap-3">
@@ -37,8 +37,8 @@ const Home = () => {
           {/* Charts */}
           <div className="grid grid-cols-2 gap-6">
             {/* Services Per Project */}
-            <div className="bg-white p-4 rounded shadow h-[300px]">
-              <h2 className="font-semibold mb-2">Services per project</h2>
+            <div className="bg-white p-4 rounded shadow h-[300px] dark:bg-gray-800">
+              <h2 className="font-semibold mb-2 dark:text-white">Services per project</h2>
               <ResponsiveBar
                 data={servicesPerProject}
                 keys={['services']}
@@ -49,8 +49,8 @@ const Home = () => {
                 />
             </div>
             {/* Access Levels */}
-            <div className="bg-white p-4 rounded shadow h-[300px]">
-              <h2 className="font-semibold mb-2">Access Level Distribution</h2>
+            <div className="bg-white p-4 rounded shadow h-[300px] dark:bg-gray-800">
+              <h2 className="font-semibold mb-2 dark:text-white">Access Level Distribution</h2>
               <ResponsivePie
                 data={accessLevels}
                 margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
@@ -61,12 +61,12 @@ const Home = () => {
           </div>
 
           {/* Recent Logs */}
-          <div className="bg-white p-4 rounded shadow">
-            <h2 className="font-semibold mb-3">Recent Activity</h2>
+          <div className="bg-white p-4 rounded shadow dark:bg-gray-800">
+            <h2 className="font-semibold mb-3 dark:text-white">Recent Activity</h2>
             <ul className="space-y-2 text-sm">
-              <li>Test added Chapa to Project Alpha</li>
-              <li>Test invited Test to Project Beta</li>
-              <li>Test's role changed to manager in Project gamma</li>
+              <li className="dark:text-gray-400">Test added Chapa to Project Alpha</li>
+              <li className="dark:text-gray-400">Test invited Test to Project Beta</li>
+              <li className="dark:text-gray-400">Test's role changed to manager in Project gamma</li>
             </ul>
           </div>
         </main>
