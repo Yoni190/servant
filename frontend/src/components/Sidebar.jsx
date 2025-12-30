@@ -35,9 +35,12 @@ const Sidebar = () => {
             {t('settings')}
           </Link>
         </li>
-        <li className="mb-2 flex gap-2 items-center text-gray-700 dark:text-gray-300">
-          <LogOut />
-          <a href="#">{t('logout')}</a>
+        <li className="mb-2">
+          <Link to="/" className="text-gray-700 flex gap-2 dark:text-gray-300">
+            <LogOut />
+            {t('logout')}
+          </Link>
+          
         </li>
       </ul>
     </div>
