@@ -14,7 +14,10 @@ const Settings = () => {
 
     const navigate = useNavigate()
 
-    const notify = () => toast.success("Profile Data Updated!");
+    const notify = () => toast.success(t("profileUpdated"), {
+        position: i18n.language === 'ar' ? "top-left" : "top-right",
+        autoClose: 3000,
+    });
 
     const handleProfileUpdate = (e) => {
         e.preventDefault();
