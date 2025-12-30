@@ -48,7 +48,7 @@ const Settings = () => {
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-800">
+        <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-900">
             <h1 className='text-2xl font-semibold text-black dark:text-white'>Settings</h1>
             {/* Profile Info */}
             <form action="#">
