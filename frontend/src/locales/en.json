@@ -28,5 +28,20 @@
   "projects": "Projects",
   "logs": "Logs",
   "logout": "Log Out",
-  "appName": "Servant"
+  "appName": "Servant",
+  "auditLogs": "Audit Logs",
+  "filter": "Filter",
+  "selectProject": "Select a Project",
+  "alpha": "Alpha",
+  "beta": "Beta",
+  "gamma": "Gamma",
+  "applyFilters": "Apply Filters",
+  "id": "ID",
+  "action": "Action",
+  "performedBy": "Performed By",
+  "project": "Project",
+  "time": "Time",
+  "addServices": "Add Services",
+  "editServices": "Edit services",
+  "addMember": "Add member"
 }

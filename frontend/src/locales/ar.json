@@ -28,5 +28,20 @@
   "projects": "المشاريع",
   "logs": "السجلات",
   "logout": "تسجيل الخروج",
-  "appName": "سيرفانت"
+  "appName": "سيرفانت",
+  "auditLogs": "سجلات التدقيق",
+  "filter": "تصفية",
+  "selectProject": "اختر المشروع",
+  "alpha": "ألفا",
+  "beta": "بيتا",
+  "gamma": "جاما",
+  "applyFilters": "تطبيق الفلاتر",
+  "id": "المعرف",
+  "action": "الإجراء",
+  "performedBy": "تم بواسطة",
+  "project": "المشروع",
+  "time": "الوقت",
+  "addServices": "إضافة خدمات",
+  "editServices": "تعديل الخدمات",
+  "addMember": "إضافة عضو"
 }
