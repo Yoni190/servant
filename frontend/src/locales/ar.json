@@ -68,5 +68,13 @@
   "servicesRequired": "مطلوب خدمة واحدة على الأقل",
   "saveProject": "حفظ المشروع",
   "projectDataSaved": "تم حفظ بيانات المشروع بنجاح",
-  "editProject": "تعديل المشروع"
+  "editProject": "تعديل المشروع",
+  "accessLevelDistribution": "توزيع مستويات الوصول",
+  "recentActivity": "النشاط الأخير",
+  "owner": "مالك",
+  "manager": "مدير",
+  "member": "عضو",
+  "log1": "قام Test بإضافة Chapa إلى المشروع ألفا",
+  "log2": "قام Test بدعوة Test إلى المشروع بيتا",
+  "log3": "تم تغيير دور Test إلى مدير في المشروع جاما"
 }

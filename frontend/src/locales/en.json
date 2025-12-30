@@ -68,5 +68,13 @@
   "servicesRequired": "At least one service is required",
   "saveProject": "Save Project",
   "projectDataSaved": "Project data saved successfully",
-  "editProject": "Edit Project"
+  "editProject": "Edit Project",
+  "accessLevelDistribution": "Access Level Distribution",
+  "recentActivity": "Recent Activity",
+  "owner": "Owner",
+  "manager": "Manager",
+  "member": "Member",
+  "log1": "Test added Chapa to Project Alpha",
+  "log2": "Test invited Test to Project Beta",
+  "log3": "Test's role changed to manager in Project Gamma"
 }

@@ -11,15 +11,15 @@ const Home = () => {
   const { t } = useTranslation();
 
   const servicesPerProject = [
-    { project: 'Alpha', services: 5 },
-    { project: 'Beta', services: 3 },
-    { project: 'Gamma', services: 8 },
+    { project: t('alpha'), services: 5 },
+    { project: t('beta'), services: 3 },
+    { project: t('gamma'), services: 8 },
   ]
 
   const accessLevels = [
-    { id: 'Owner', label: 'Owner', value: 2 },
-    { id: 'Manager', label: 'Manager', value: 4 },
-    { id: 'Member', label: 'Member', value: 6 },
+    { id: t('owner'), label: t('owner'), value: 2 },
+    { id: t('manager'), label: t('manager'), value: 4 },
+    { id: t('member'), label: t('member'), value: 6 },
   ]
 
 
@@ -32,9 +32,9 @@ const Home = () => {
 
           {/* Stat Cards */}
           <div className="grid grid-cols-3 gap-3">
-            <StatCard title="Projects" value="5" />
-            <StatCard title="Services" value="18" />
-            <StatCard title="Team Members" value="12" />
+            <StatCard title="projects" value="5" />
+            <StatCard title="services" value="18" />
+            <StatCard title="teamMembers" value="12" />
           </div>
 
           {/* Charts */}
@@ -53,7 +53,7 @@ const Home = () => {
             </div>
             {/* Access Levels */}
             <div className="bg-white p-4 rounded shadow h-[300px] dark:bg-gray-800">
-              <h2 className="font-semibold mb-2 dark:text-white">Access Level Distribution</h2>
+              <h2 className="font-semibold mb-2 dark:text-white">{t('accessLevelDistribution')}</h2>
               <ResponsivePie
                 data={accessLevels}
                 margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
@@ -65,11 +65,11 @@ const Home = () => {
 
           {/* Recent Logs */}
           <div className="bg-white p-4 rounded shadow dark:bg-gray-800">
-            <h2 className="font-semibold mb-3 dark:text-white">Recent Activity</h2>
+            <h2 className="font-semibold mb-3 dark:text-white">{t('recentActivity')}</h2>
             <ul className="space-y-2 text-sm">
-              <li className="dark:text-gray-400">Test added Chapa to Project Alpha</li>
-              <li className="dark:text-gray-400">Test invited Test to Project Beta</li>
-              <li className="dark:text-gray-400">Test's role changed to manager in Project gamma</li>
+              <li className="dark:text-gray-400">{t('log1')}</li>
+              <li className="dark:text-gray-400">{t('log2')}</li>
+              <li className="dark:text-gray-400">{t('log3')}</li>
             </ul>
           </div>
         </main>
