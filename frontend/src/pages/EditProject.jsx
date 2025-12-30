@@ -12,8 +12,8 @@ const EditProject = () => {
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-6 bg-gray-50 space-y-6">
-            <h1 className='text-2xl font-semibold'>Edit Project</h1>
+        <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
+            <h1 className='text-2xl font-semibold dark:text-white'>Edit Project</h1>
             <ProjectForm 
                 title_pass="Alpha"
                 description_pass="This is the Alpha project."
