@@ -64,8 +64,8 @@ const Settings = () => {
             <h1 className='text-2xl font-semibold text-black dark:text-white'>{t('settings')}</h1>
             {/* Profile Info */}
             <form action="#">
-                <h2 className='text-xl font-semibold dark:text-white'>Profile</h2>
-                <label htmlFor="name" className='mt-4 block dark:text-white'>Full Name</label>
+                <h2 className='text-xl font-semibold dark:text-white'>{t('profile')}</h2>
+                <label htmlFor="name" className='mt-4 block dark:text-white'>{t('fullName')}</label>
                 <input 
                     type="text" 
                     name="name" 
@@ -75,7 +75,7 @@ const Settings = () => {
                     value="John Doe"
                     onChange={() => {}}
                     />
-                <label htmlFor="email" className='mt-4 block dark:text-white'>Email Address</label>
+                <label htmlFor="email" className='mt-4 block dark:text-white'>{t('email')}</label>
                 <input 
                     type="email" 
                     name="email" 
@@ -89,35 +89,35 @@ const Settings = () => {
                 <button 
                     className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
                     onClick={handleProfileUpdate}
-                    >Save Changes</button>
+                    >{t('saveChanges')}</button>
             </form>
 
             {/* Password Manager Integration */}
             <div>
-                <h2 className='text-xl font-semibold dark:text-white'>Password Manager Integration</h2>
+                <h2 className='text-xl font-semibold dark:text-white'>{t('passwordManagerIntegration')}</h2>
             </div>
 
             {/* Language */}
             <div>
-                <h2 className='text-xl font-semibold dark:text-white'>Language</h2>
-                <label htmlFor="language" className='mt-4 block dark:text-white'>Select Language</label>
+                <h2 className='text-xl font-semibold dark:text-white'>{t('language')}</h2>
+                <label htmlFor="language" className='mt-4 block dark:text-white'>{t('selectLanguage')}</label>
 
                 <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
                 onClick={() => i18n.changeLanguage('en')}
                 >
-                    English
+                    {t('english')}
                 </button>
 
                 <button className='ml-4 mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
                 onClick={() => i18n.changeLanguage('ar')}>
-                    العربية
+                    {t('arabic')}
                 </button>
             </div>
 
             {/* Theme */}
             <div>
-                <h2 className='text-xl font-semibold dark:text-white'>Theme</h2>
-                <label htmlFor="theme" className='mt-4 block dark:text-white'>Select Theme</label>
+                <h2 className='text-xl font-semibold dark:text-white'>{t('theme')}</h2>
+                <label htmlFor="theme" className='mt-4 block dark:text-white'>{t('selectTheme')}</label>
                 <div className="flex gap-4 mt-2">
                     <button 
                         className='rounded-2xl border p-4 hover:cursor-pointer hover:border-blue-500 hover:shadow dark:bg-white'
@@ -132,12 +132,12 @@ const Settings = () => {
 
             {/* Delete Account */}
             <div>
-                <h2 className="text-xl font-semibold dark:text-white">Delete Account</h2>
+                <h2 className="text-xl font-semibold dark:text-white">{t('deleteAccount')}</h2>
                 <button 
                 className='bg-red-500 px-2 py-1 rounded text-white mt-2 cursor-pointer hover:bg-red-700'
                 onClick={handleDelete}
                 >
-                    Delete
+                    {t('deleteButton')}
                 </button>
             </div>
         </main>

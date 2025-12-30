@@ -1,6 +1,8 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import en from './locales/en.json';
+import ar from './locales/ar.json';
 
 i18n
   // detect user language
@@ -17,19 +19,9 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
     resources: {
-      en: {
-        translation: {
-          servicesPerProject: "Services per project",
-          settings: "Settings",
-        }
-      },
-      ar: {
-        translation: {
-          servicesPerProject: "الخدمات لكل مشروع",
-          settings: "الإعدادات",
-        }
-      }
-    }
+      en: { translation: en },
+      ar: { translation: ar }
+    },
   });
 
 export default i18n;
