@@ -43,5 +43,19 @@
   "time": "الوقت",
   "addServices": "إضافة خدمات",
   "editServices": "تعديل الخدمات",
-  "addMember": "إضافة عضو"
+  "addMember": "إضافة عضو",
+  "addNewProject": "إضافة مشروع جديد",
+  "projectTitle": "عنوان المشروع",
+  "numberOfServices": "عدد الخدمات",
+  "numberOfTeamMembers": "عدد أعضاء الفريق",
+  "title": "العنوان",
+  "services": "الخدمات",
+  "teamMembers": "أعضاء الفريق",
+  "actions": "الإجراءات",
+  "edit": "تعديل",
+  "delete": "حذف",
+  "warning": "تحذير!",
+  "deleteProjectText": "هل أنت متأكد من حذف هذا المشروع؟",
+  "deleted": "تم الحذف!",
+  "projectDeleted": "تم حذف المشروع."
 }

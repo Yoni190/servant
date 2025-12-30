@@ -43,5 +43,19 @@
   "time": "Time",
   "addServices": "Add Services",
   "editServices": "Edit services",
-  "addMember": "Add member"
+  "addMember": "Add member",
+  "addNewProject": "Add New Project",
+  "projectTitle": "Project Title",
+  "numberOfServices": "Number of Services",
+  "numberOfTeamMembers": "Number of Team Members",
+  "title": "Title",
+  "services": "Services",
+  "teamMembers": "Team Members",
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "warning": "Warning!",
+  "deleteProjectText": "Are you sure you want to delete this project?",
+  "deleted": "Deleted!",
+  "projectDeleted": "The project has been deleted."
 }
