@@ -20,5 +20,9 @@
   "deleteWarningTitle": "تحذير!",
   "deleteWarningText": "هل أنت متأكد أنك تريد حذف حسابك؟",
   "deleteSuccessTitle": "تم الحذف!",
-  "deleteSuccessText": "تم حذف حسابك بنجاح."
+  "deleteSuccessText": "تم حذف حسابك بنجاح.",
+  "home": "الرئيسية",
+  "projects": "المشاريع",
+  "logs": "السجلات",
+  "logout": "تسجيل الخروج"
 }

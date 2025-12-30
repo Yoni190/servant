@@ -20,5 +20,9 @@
   "deleteWarningTitle": "Warning!",
   "deleteWarningText": "Are you sure you want to delete your account?",
   "deleteSuccessTitle": "Deleted!",
-  "deleteSuccessText": "Your account has been deleted."
+  "deleteSuccessText": "Your account has been deleted.",
+  "home": "Home",
+  "projects": "Projects",
+  "logs": "Logs",
+  "logout": "Log Out"
 }
