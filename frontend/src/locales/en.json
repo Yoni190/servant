@@ -24,5 +24,6 @@
   "home": "Home",
   "projects": "Projects",
   "logs": "Logs",
-  "logout": "Log Out"
+  "logout": "Log Out",
+  "appName": "Servant"
 }
