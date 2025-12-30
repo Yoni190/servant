@@ -4,9 +4,13 @@ import Sidebar from '../components/Sidebar'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next'
+
 
 
 const Settings = () => {
+
+    const { t, i18n } = useTranslation();
 
     const navigate = useNavigate()
 
@@ -57,7 +61,7 @@ const Settings = () => {
       <div className="flex flex-1">
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
-            <h1 className='text-2xl font-semibold text-black dark:text-white'>Settings</h1>
+            <h1 className='text-2xl font-semibold text-black dark:text-white'>{t('settings')}</h1>
             {/* Profile Info */}
             <form action="#">
                 <h2 className='text-xl font-semibold dark:text-white'>Profile</h2>
@@ -97,13 +101,17 @@ const Settings = () => {
             <div>
                 <h2 className='text-xl font-semibold dark:text-white'>Language</h2>
                 <label htmlFor="language" className='mt-4 block dark:text-white'>Select Language</label>
-                <select name="language" id="language" className='border rounded w-full p-2 mt-2 
-                                border rounded p-2
-                                bg-white text-gray-900
-                                dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700'>
-                    <option value="en">English</option>
-                    <option value="ar">العربية</option>
-                </select>
+
+                <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
+                onClick={() => i18n.changeLanguage('en')}
+                >
+                    English
+                </button>
+
+                <button className='ml-4 mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
+                onClick={() => i18n.changeLanguage('ar')}>
+                    العربية
+                </button>
             </div>
 
             {/* Theme */}

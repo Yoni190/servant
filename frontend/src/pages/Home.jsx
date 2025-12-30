@@ -4,8 +4,11 @@ import Sidebar from '../components/Sidebar.jsx'
 import StatCard from '../components/StatCard.jsx'
 import { ResponsiveBar } from '@nivo/bar'
 import { ResponsivePie } from '@nivo/pie'
+import { useTranslation } from 'react-i18next'
 
 const Home = () => {
+
+  const { t } = useTranslation();
 
   const servicesPerProject = [
     { project: 'Alpha', services: 5 },
@@ -38,7 +41,7 @@ const Home = () => {
           <div className="grid grid-cols-2 gap-6">
             {/* Services Per Project */}
             <div className="bg-white p-4 rounded shadow h-[300px] dark:bg-gray-800">
-              <h2 className="font-semibold mb-2 dark:text-white">Services per project</h2>
+              <h2 className="font-semibold mb-2 dark:text-white">{t('servicesPerProject')}</h2>
               <ResponsiveBar
                 data={servicesPerProject}
                 keys={['services']}
