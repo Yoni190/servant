@@ -48,45 +48,45 @@ const Settings = () => {
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-6 bg-gray-50 space-y-6">
+        <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-800">
             <h1 className='text-2xl font-semibold text-black dark:text-white'>Settings</h1>
             {/* Profile Info */}
             <form action="#">
-                <h2 className='text-xl font-semibold'>Profile</h2>
-                <label htmlFor="name" className='mt-4 block'>Full Name</label>
+                <h2 className='text-xl font-semibold dark:text-white'>Profile</h2>
+                <label htmlFor="name" className='mt-4 block dark:text-white'>Full Name</label>
                 <input 
                     type="text" 
                     name="name" 
                     id="name" 
-                    className='border rounded w-full p-2 mt-2'
+                    className='border rounded w-full p-2 mt-2 dark:text-white'
                     placeholder='Full Name'
                     value="John Doe"
                     onChange={() => {}}
                     />
-                <label htmlFor="email" className='mt-4 block'>Email Address</label>
+                <label htmlFor="email" className='mt-4 block dark:text-white'>Email Address</label>
                 <input 
                     type="email" 
                     name="email" 
                     id="email" 
-                    className='border rounded w-full p-2 mt-2'
+                    className='border rounded w-full p-2 mt-2 dark:text-white'
                     placeholder='Email'
                     value="john.doe@example.com"
                     onChange={() => {}}
                     />
 
-                <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer'>Save Changes</button>
+                <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'>Save Changes</button>
             </form>
 
             {/* Password Manager Integration */}
             <div>
-                <h2 className='text-xl font-semibold'>Password Manager Integration</h2>
+                <h2 className='text-xl font-semibold dark:text-white'>Password Manager Integration</h2>
             </div>
 
             {/* Language */}
             <div>
-                <h2 className='text-xl font-semibold'>Language</h2>
-                <label htmlFor="language" className='mt-4 block'>Select Language</label>
-                <select name="language" id="language" className='border rounded w-full p-2 mt-2'>
+                <h2 className='text-xl font-semibold dark:text-white'>Language</h2>
+                <label htmlFor="language" className='mt-4 block dark:text-white'>Select Language</label>
+                <select name="language" id="language" className='border rounded w-full p-2 mt-2 dark:text-white'>
                     <option value="en">English</option>
                     <option value="ar">العربية</option>
                 </select>
@@ -94,11 +94,11 @@ const Settings = () => {
 
             {/* Theme */}
             <div>
-                <h2 className='text-xl font-semibold'>Theme</h2>
-                <label htmlFor="theme" className='mt-4 block'>Select Theme</label>
+                <h2 className='text-xl font-semibold dark:text-white'>Theme</h2>
+                <label htmlFor="theme" className='mt-4 block dark:text-white'>Select Theme</label>
                 <div className="flex gap-4 mt-2">
                     <button 
-                        className='rounded-2xl border p-4 hover:cursor-pointer hover:border-blue-500 hover:shadow'
+                        className='rounded-2xl border p-4 hover:cursor-pointer hover:border-blue-500 hover:shadow dark:bg-white'
                         onClick={() => handleDarkModeToggle('light')}
                         ></button>
                     <button 
@@ -110,7 +110,7 @@ const Settings = () => {
 
             {/* Delete Account */}
             <div>
-                <h2 className="text-xl font-semibold">Delete Account</h2>
+                <h2 className="text-xl font-semibold dark:text-white">Delete Account</h2>
                 <button 
                 className='bg-red-500 px-2 py-1 rounded text-white mt-2 cursor-pointer hover:bg-red-700'
                 onClick={handleDelete}
