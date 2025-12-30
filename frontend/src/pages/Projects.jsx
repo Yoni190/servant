@@ -33,11 +33,11 @@ const Projects = () => {
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-6 bg-gray-50 space-y-6">
+        <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
 
             {/* Title */}
             <div className='flex justify-between'>
-                <h1 className='text-2xl font-semibold'>Projects</h1>
+                <h1 className='text-2xl font-semibold dark:text-white'>Projects</h1>
                 <Link to="/projects/add">
                     <button className='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600'>Add New Project</button>
                 </Link>
@@ -45,23 +45,23 @@ const Projects = () => {
 
             {/* Body */}
             <div className='space-y-6'>
-                <div className="bg-white rounded shadow p-4 ">
-                    <h2 className='text-lg font-semibold'>Filter</h2>
+                <div className="bg-white rounded shadow p-4 dark:bg-gray-800">
+                    <h2 className='text-lg font-semibold dark:text-white'>Filter</h2>
                     <form action="#" className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-4'>
                         <input
-                            className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                            className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white'
                             type="text"
                             name="title"
                             id="title"
                             placeholder='Project Title'/>
                         <input
-                            className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                            className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white'
                             type="number"
                             name="services"
                             id="services"
                             placeholder='Number of Services'/>
                         <input
-                            className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                            className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white'
                             type="number"
                             name="members"
                             id="members"
@@ -73,23 +73,23 @@ const Projects = () => {
                         </button>
                     </form>
                 </div>
-                <table className='w-full bg-white rounded shadow overflow-hidden'>
-                    <thead className='bg-gray-100 text-left'>
+                <table className='w-full bg-white rounded shadow overflow-hidden dark:bg-gray-800'>
+                    <thead className='bg-gray-100 text-left dark:bg-gray-800'>
                         <tr>
-                            <th className='p-3'>ID</th>
-                            <th className='p-3'>Title</th>
-                            <th className='p-3'>Services</th>
-                            <th className='p-3'>Team Members</th>
-                            <th className='p-3'>Actions</th>
+                            <th className='p-3 dark:text-white'>ID</th>
+                            <th className='p-3 dark:text-white'>Title</th>
+                            <th className='p-3 dark:text-white'>Services</th>
+                            <th className='p-3 dark:text-white'>Team Members</th>
+                            <th className='p-3 dark:text-white'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {projects.map((project) => (
-                            <tr key={project.id} className='border-t hover:bg-gray-50'>
-                                <td className='p-3'>{project.id}</td>
-                                <td className='p-3 font-medium'>{project.title}</td>
-                                <td className='p-3'>{project.services}</td>
-                                <td className='p-3'>{project.members}</td>
+                            <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
+                                <td className='p-3 dark:text-white'>{project.id}</td>
+                                <td className='p-3 font-medium dark:text-white'>{project.title}</td>
+                                <td className='p-3 dark:text-white'>{project.services}</td>
+                                <td className='p-3 dark:text-white'>{project.members}</td>
                                 <td className='p-3 space-x-3'>
                                     <Link to={`/project/edit/${project.id}`}>
                                         <button className="text-blue-500 hover:underline hover:cursor-pointer">Edit</button>
