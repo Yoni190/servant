@@ -57,5 +57,15 @@
   "warning": "تحذير!",
   "deleteProjectText": "هل أنت متأكد من حذف هذا المشروع؟",
   "deleted": "تم الحذف!",
-  "projectDeleted": "تم حذف المشروع."
+  "projectDeleted": "تم حذف المشروع.",
+  "projectDescription": "وصف المشروع",
+  "projectServices": "خدمات المشروع",
+  "enterProjectTitle": "أدخل عنوان المشروع",
+  "enterProjectDescription": "أدخل وصف المشروع",
+  "enterProjectServices": "أدخل خدمات المشروع",
+  "titleRequired": "العنوان مطلوب",
+  "descriptionRequired": "الوصف مطلوب",
+  "servicesRequired": "مطلوب خدمة واحدة على الأقل",
+  "saveProject": "حفظ المشروع",
+  "projectDataSaved": "تم حفظ بيانات المشروع بنجاح"
 }

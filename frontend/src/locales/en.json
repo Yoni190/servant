@@ -57,5 +57,15 @@
   "warning": "Warning!",
   "deleteProjectText": "Are you sure you want to delete this project?",
   "deleted": "Deleted!",
-  "projectDeleted": "The project has been deleted."
+  "projectDeleted": "The project has been deleted.",
+  "projectDescription": "Project Description",
+  "projectServices": "Project Services",
+  "enterProjectTitle": "Enter project title",
+  "enterProjectDescription": "Enter project description",
+  "enterProjectServices": "Enter project services",
+  "titleRequired": "Title is required",
+  "descriptionRequired": "Description is required",
+  "servicesRequired": "At least one service is required",
+  "saveProject": "Save Project",
+  "projectDataSaved": "Project data saved successfully"
 }

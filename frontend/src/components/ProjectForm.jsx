@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify';
+
+
 
 
 const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
@@ -10,7 +13,12 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
     const [services, setServices] = useState(services_pass || [])
     const [errors, setErrors] = useState([{}])
 
-    const notify = () => toast.success("Project Data Saved!");
+    const { t, i18n } = useTranslation();
+
+    const notify = () => toast.success(t("projectDataSaved"), {
+        position: i18n.language === 'ar' ? "top-left" : "top-right",
+        autoClose: 3000,
+    });
 
     const navigate = useNavigate()
 
@@ -19,11 +27,11 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
 
         const newErrors = []
         if (!title) {
-            newErrors.push({ field: 'title', message: 'Title is required' })
+            newErrors.push({ field: 'title', message: t('titleRequired') })
         } if (!description) {
-            newErrors.push({ field: 'description', message: 'Description is required' })
+            newErrors.push({ field: 'description', message: t('descriptionRequired') })
         } if (!services.length) {
-            newErrors.push({ field: 'services', message: 'At least one service is required' })
+            newErrors.push({ field: 'services', message: t('servicesRequired') })
         }
         if (newErrors.length > 0) {
             setErrors(newErrors)
@@ -44,13 +52,13 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
         <form className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-8 space-y-5 dark:bg-gray-800">
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-white" htmlFor="title">
-                    Project Title
+                    {t('projectTitle')}
                 </label>
                 <input
                     type="text"
                     id="title"
                     className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                    placeholder="Enter project title"
+                    placeholder={t('enterProjectTitle')}
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
@@ -63,12 +71,12 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
 
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-white" htmlFor="description">
-                    Project Description
+                    {t('projectDescription')}
                 </label>
                 <textarea
                     id="description"
                     className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                    placeholder="Enter project description"
+                    placeholder={t('enterProjectDescription')}
                     rows="4"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -81,12 +89,12 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
             </div>
 
             <div className="mb-4">
-                <label htmlFor="services" className="block text-gray-700 text-sm font-bold mb-2 dark:text-white">Project Services</label>
+                <label htmlFor="services" className="block text-gray-700 text-sm font-bold mb-2 dark:text-white">{t('projectServices')}</label>
                 <input
                     type="text"
                     id="services"
                     className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                    placeholder="Enter project services"
+                    placeholder={t('enterProjectServices')}
                     value={services}
                     onChange={(e) => handleServicesChange(e)}
                 />
@@ -102,7 +110,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
                 className="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-medium transition dark:bg-green-500 dark:hover:bg-green-600"
                 onClick={handleSubmit}
             >
-                Save Project
+                {t('saveProject')}
             </button>
             
         </form>
