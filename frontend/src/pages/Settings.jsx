@@ -41,18 +41,25 @@ const Settings = () => {
 
     const handleDelete = () => {
         Swal.fire({
-                    title: "Warning!",
-                    text: "Are you sure you want to delete your account?",
+                    title: t("deleteWarningTitle"),
+                    text: t("deleteWarningText"),
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonColor: "#d33"
+                    confirmButtonColor: "#d33",
+                    confirmButtonText: t("deleteConfirmButton"),
+                    cancelButtonText: t("cancelButton")
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Proceed with deletion logic here
                         console.log(`User Account deleted.`);
-                        Swal.fire("Deleted!", "Your account has been deleted.", "success");
-
-                        navigate('/')
+                        Swal.fire({
+                            title: t("deleteSuccessTitle"),
+                            text: t("deleteSuccessText"),
+                            icon: "success",
+                            confirmButtonText: t('okButton')
+                        }).then(() => {
+                            navigate('/')
+                        });
                     }
                 })
     }
