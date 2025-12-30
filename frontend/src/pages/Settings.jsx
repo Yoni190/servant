@@ -3,11 +3,19 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 
 const Settings = () => {
 
     const navigate = useNavigate()
+
+    const notify = () => toast.success("Profile Data Updated!");
+
+    const handleProfileUpdate = (e) => {
+        e.preventDefault();
+        notify();
+    }
 
     const handleDarkModeToggle = (mode) => {
         if (mode === 'dark') {
@@ -74,7 +82,10 @@ const Settings = () => {
                     onChange={() => {}}
                     />
 
-                <button className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'>Save Changes</button>
+                <button 
+                    className='mt-4 bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 cursor-pointer dark:bg-white dark:text-blue-600 dark:hover:bg-gray-200'
+                    onClick={handleProfileUpdate}
+                    >Save Changes</button>
             </form>
 
             {/* Password Manager Integration */}
