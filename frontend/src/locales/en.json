@@ -86,5 +86,8 @@
   "password": "Password",
   "register": "Register",
   "alreadyHaveAccount": "Already have an account?",
-  "login": "Login"
+  "login": "Login",
+  "membersRequired": "Number of members is required.",
+  "projectMembers": "Project Members",
+  "enterProjectMembers": "Enter Number of Project Members"
 }

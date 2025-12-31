@@ -7,10 +7,11 @@ import { toast } from 'react-toastify';
 
 
 
-const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
+const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass }) => {
     const [title, setTitle] = useState(title_pass || '')
     const [description, setDescription] = useState(description_pass || '')
     const [services, setServices] = useState(services_pass || [])
+    const [members, setMembers] = useState(members_pass || '')
     const [errors, setErrors] = useState([{}])
 
     const { t, i18n } = useTranslation();
@@ -32,13 +33,28 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
             newErrors.push({ field: 'description', message: t('descriptionRequired') })
         } if (!services.length) {
             newErrors.push({ field: 'services', message: t('servicesRequired') })
+        } if(!members) {
+            newErrors.push({ field: 'members', message: t('membersRequired') })
         }
         if (newErrors.length > 0) {
             setErrors(newErrors)
             return
         }
-        // Handle form submission logic here
-        console.log({ title, description, services })
+        
+        const existingProjects = JSON.parse(localStorage.getItem('projects')) || []
+
+        const newProject = {
+            id: Date.now(),
+            title,
+            description,services
+        }
+
+
+        localStorage.setItem(
+            'projects',
+            JSON.stringify([...existingProjects, newProject])
+        )
+
         navigate('/projects')
         notify()
     }
@@ -101,6 +117,23 @@ const ProjectForm = ({ title_pass, description_pass, services_pass }) => {
                 {errors.find(error => error.field === 'services') && (
                     <p className="text-red-500 text-xs mt-2">
                         {errors.find(error => error.field === 'services').message}
+                    </p>
+                )}
+            </div>
+
+            <div className="mb-4">
+                <label htmlFor="members" className="block text-gray-700 text-sm font-bold mb-2 dark:text-white">{t('projectMembers')}</label>
+                <input
+                    type="text"
+                    id="members"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    placeholder={t('enterProjectMembers')}
+                    value={members}
+                    onChange={(e) => setMembers(e.target.value)}
+                />
+                {errors.find(error => error.field === 'members') && (
+                    <p className="text-red-500 text-xs mt-2">
+                        {errors.find(error => error.field === 'members').message}
                     </p>
                 )}
             </div>
