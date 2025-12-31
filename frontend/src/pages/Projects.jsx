@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { Link } from 'react-router-dom'
@@ -10,11 +10,25 @@ const Projects = () => {
 
     const { t, i18n } = useTranslation();
 
+    const [projects_ls, setProjects_ls] = useState([])
+
     const projects = [
         {id: 1, title: t("alpha"), services: 5, members: 6},
         {id: 2, title: t("beta"), services: 3, members: 4},
         {id: 3, title: t("gamma"), services: 8, members: 2}
     ]
+
+    useEffect(() => {
+      const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
+
+      localProjects.map((project) => {
+        project.services = project.services.length
+      })
+
+      setProjects_ls(localProjects)
+
+    }, [])
+    
 
     const [filters, setFilters] = useState({
         title: '',
@@ -31,7 +45,7 @@ const Projects = () => {
     }
 
     const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
+    return projects_ls.filter(project => {
         const matchesTitle =
         filters.title === '' ||
         project.title.toLowerCase().includes(filters.title.toLowerCase())
