@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import ProjectForm from '../components/ProjectForm'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
+
 
 
 
 const EditProject = () => {
+
+    const { id } = useParams()
+
+    const [project, setProject] = useState(null)
+
+    useEffect(() => {
+      const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
+
+      const localProject = localProjects.find(project => project.id == Number(id))
+
+      setProject(localProject)
+    }, [])
+
+    
 
     const services_data = ["Service A", "Service B", "Service C"]
 
@@ -19,11 +35,16 @@ const EditProject = () => {
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
             <h1 className='text-2xl font-semibold dark:text-white'>{t('editProject')}</h1>
+            {project ? (
             <ProjectForm 
-                title_pass="Alpha"
-                description_pass="This is the Alpha project."
-                services_pass={services_data}
+                title_pass={project.title}
+                description_pass={project.description}
+                services_pass={project.services}
+                members_pass={project.members}
             />
+            ) : (
+              <p>Loading Project...</p>
+            )}
         </main>
      </div>
     </div>
