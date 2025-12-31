@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header.jsx'
 import Sidebar from '../components/Sidebar.jsx'
 import StatCard from '../components/StatCard.jsx'
@@ -10,9 +10,21 @@ const Home = () => {
 
   const { t } = useTranslation();
 
-const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'));
+  const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'));
+  const [projects, setProjects] = useState([])
 
+  const [totalServices, setTotalServices] = useState(0)
+  const [totalMembers, setTotalMembers] = useState(0)
 
+  useEffect(() => {
+    const localProjects = JSON.parse(localStorage.getItem('projects'))
+
+    setProjects(localProjects)
+
+    setTotalServices(localProjects.reduce((acc, project) => acc + (project.services?.length || 0), 0))
+    setTotalMembers(localProjects.reduce((acc, project) => acc + (Number(project.members) || 0), 0))
+  }, [])
+  
   const servicesPerProject = [
     { project: t('alpha'), services: 5 },
     { project: t('beta'), services: 3 },
@@ -35,9 +47,9 @@ const [isDark, setIsDark] = useState(document.documentElement.classList.contains
 
           {/* Stat Cards */}
           <div className="grid grid-cols-3 gap-3">
-            <StatCard title="projects" value="5" />
-            <StatCard title="services" value="18" />
-            <StatCard title="teamMembers" value="12" />
+            <StatCard title="projects" value={projects.length} />
+            <StatCard title="services" value={totalServices} />
+            <StatCard title="teamMembers" value={totalMembers} />
           </div>
 
           {/* Charts */}
