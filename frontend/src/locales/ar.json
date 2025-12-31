@@ -77,5 +77,11 @@
   "log1": "قام Test بإضافة Chapa إلى المشروع ألفا",
   "log2": "قام Test بدعوة Test إلى المشروع بيتا",
   "log3": "تم تغيير دور Test إلى مدير في المشروع جاما",
-  "noProjectsFound": "ﻻ يوجد اي مشاريع"
+  "noProjectsFound": "ﻻ يوجد اي مشاريع",
+  "welcomeBack": "مرحبًا بعودتك",
+  "signInSubtitle": "سجّل الدخول إلى حسابك",
+  "password": "كلمة المرور",
+  "login": "تسجيل الدخول",
+  "noAccount": "ليس لديك حساب؟",
+  "register": "إنشاء حساب"
 }

@@ -77,5 +77,11 @@
   "log1": "Test added Chapa to Project Alpha",
   "log2": "Test invited Test to Project Beta",
   "log3": "Test's role changed to manager in Project Gamma",
-  "noProjectsFound": "No Projects Found"
+  "noProjectsFound": "No Projects Found",
+  "welcomeBack": "Welcome back",
+  "signInSubtitle": "Sign in to your account",
+  "password": "Password",
+  "login": "Login",
+  "noAccount": "Don't have an account?",
+  "register": "Register"
 }
