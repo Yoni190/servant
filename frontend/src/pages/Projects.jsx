@@ -147,7 +147,7 @@ const Projects = () => {
 
                         {filteredProjects.length === 0 && (
                             <tr>
-                                <td colSpan={5} className='text-center p-4 text-gray-500'>
+                                <td colSpan={5} className='text-center p-4 text-gray-500 dark:text-gray-200'>
                                     {t('noProjectsFound')}
                                 </td>
                             </tr>
