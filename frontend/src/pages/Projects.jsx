@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { Link } from 'react-router-dom'
@@ -15,6 +15,40 @@ const Projects = () => {
         {id: 2, title: t("beta"), services: 3, members: 4},
         {id: 3, title: t("gamma"), services: 8, members: 2}
     ]
+
+    const [filters, setFilters] = useState({
+        title: '',
+        services: '',
+        members: ''
+    })
+
+    const handleFilterChange = (e) => {
+        const { name, value } = e.target
+        setFilters(prev =>  ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
+    const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+        const matchesTitle =
+        filters.title === '' ||
+        project.title.toLowerCase().includes(filters.title.toLowerCase())
+
+        const matchesServices =
+        filters.services === '' ||
+        project.services === Number(filters.services)
+
+        const matchesMembers =
+        filters.members === '' ||
+        project.members === Number(filters.members)
+
+        return matchesTitle && matchesServices && matchesMembers
+    })
+    }, [projects, filters])
+
+    
 
     const handleDelete = (projectId) => {
 
@@ -64,24 +98,25 @@ const Projects = () => {
                             type="text"
                             name="title"
                             id="title"
+                            value={filters.title}
+                            onChange={handleFilterChange}
                             placeholder={t('projectTitle')}/>
                         <input
                             className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white'
                             type="number"
                             name="services"
                             id="services"
+                            value={filters.services}
+                            onChange={handleFilterChange}
                             placeholder={t('numberOfServices')}/>
                         <input
                             className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white'
                             type="number"
                             name="members"
                             id="members"
+                            value={filters.members}
+                            onChange={handleFilterChange}
                             placeholder={t('numberOfTeamMembers')}/>
-                        <button
-                            type="submit"
-                            className='bg-blue-500 text-white px-4 py-2 rounded mt-2 hover:bg-blue-600 w-32'>
-                            {t('applyFilters')}
-                        </button>
                     </form>
                 </div>
                 <table className='w-full bg-white rounded shadow overflow-hidden dark:bg-gray-800'>
@@ -95,7 +130,7 @@ const Projects = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {projects.map((project) => (
+                        {filteredProjects.map((project) => (
                             <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
                                 <td className='p-3 dark:text-white'>{project.id}</td>
                                 <td className='p-3 font-medium dark:text-white'>{project.title}</td>
@@ -109,6 +144,14 @@ const Projects = () => {
                                 </td>
                             </tr>
                         ))}
+
+                        {filteredProjects.length === 0 && (
+                            <tr>
+                                <td colSpan={5} className='text-center p-4 text-gray-500'>
+                                    {t('noProjectsFound')}
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>

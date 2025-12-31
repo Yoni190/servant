@@ -76,5 +76,6 @@
   "member": "Member",
   "log1": "Test added Chapa to Project Alpha",
   "log2": "Test invited Test to Project Beta",
-  "log3": "Test's role changed to manager in Project Gamma"
+  "log3": "Test's role changed to manager in Project Gamma",
+  "noProjectsFound": "No Projects Found"
 }
