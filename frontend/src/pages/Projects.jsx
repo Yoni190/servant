@@ -73,12 +73,20 @@ const Projects = () => {
             if (result.isConfirmed) {
                 // Proceed with deletion logic here
                 console.log(`Project with ID ${projectId} deleted.`);
+
+                const localProjects = JSON.parse(localStorage.getItem('projects') || [])
+
+                const updatedProjects = localProjects.filter(project => project.id !== projectId)
+
+                localStorage.setItem('projects', JSON.stringify(updatedProjects))
+
                 Swal.fire({
                     title: t("deleted"),
                     text: t("projectDeleted"),
                     confirmButtonText: t('okButton'),
                     icon: "success"
                 });
+                setProjects(updatedProjects)
             }
         })
     }
