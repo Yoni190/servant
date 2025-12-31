@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header.jsx'
 import Sidebar from '../components/Sidebar.jsx'
 import StatCard from '../components/StatCard.jsx'
@@ -9,6 +9,9 @@ import { useTranslation } from 'react-i18next'
 const Home = () => {
 
   const { t } = useTranslation();
+
+const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'));
+
 
   const servicesPerProject = [
     { project: t('alpha'), services: 5 },
@@ -49,6 +52,13 @@ const Home = () => {
                 margin={{ top: 20, right: 20, bottom: 40, left: 40 }}
                 padding={0.3}
                 axisBottom={{ tickRotation: -20}}
+                theme={{
+                  axis: {
+                    ticks: {
+                      text: { fill: isDark ? '#f4f4f4' : '#333'}
+                    }
+                  }
+                }}
                 />
             </div>
             {/* Access Levels */}
@@ -59,6 +69,27 @@ const Home = () => {
                 margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
                 innerRadius={0.5}
                 padAngle={0.7}
+                theme={{
+                  labels: {
+                    text: {
+                      fill: isDark ? '#f4f4f4' : '#333',
+                      fontSize: 12,
+                    },
+                  },
+                  legends: {
+                    text: {
+                      fill: isDark ? '#f4f4f4' : '#333',
+                      fontSize: 12,
+                    },
+                  },
+                  tooltip: {
+                    container: {
+                      background: isDark ? '#1f2937' : '#fff',
+                      color: isDark ? '#f4f4f4' : '#333',
+                    },
+                  },
+                }}
+                colors={isDark ? ['#22D3EE', '#F472B6', '#FACC15'] : ['#3b82f6', '#f87171', '#fbbf24']}
               />
             </div>
           </div>
