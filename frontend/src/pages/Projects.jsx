@@ -144,9 +144,9 @@ const Projects = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredProjects.map((project) => (
+                        {filteredProjects.map((project, index) => (
                             <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
-                                <td className='p-3 dark:text-white'>{project.id}</td>
+                                <td className='p-3 dark:text-white'>{index + 1}</td>
                                 <td className='p-3 font-medium dark:text-white'>{project.title}</td>
                                 <td className='p-3 dark:text-white'>{project.services}</td>
                                 <td className='p-3 dark:text-white'>{project.members}</td>
