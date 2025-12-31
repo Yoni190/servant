@@ -46,7 +46,9 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         const newProject = {
             id: Date.now(),
             title,
-            description,services
+            description,
+            services,
+            members
         }
 
 
