@@ -80,8 +80,11 @@
   "noProjectsFound": "No Projects Found",
   "welcomeBack": "Welcome back",
   "signInSubtitle": "Sign in to your account",
-  "password": "Password",
-  "login": "Login",
   "noAccount": "Don't have an account?",
-  "register": "Register"
+  "createAccount": "Create account",
+  "registerSubtitle": "Get started in just a few steps",
+  "password": "Password",
+  "register": "Register",
+  "alreadyHaveAccount": "Already have an account?",
+  "login": "Login"
 }

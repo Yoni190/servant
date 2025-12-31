@@ -80,8 +80,11 @@
   "noProjectsFound": "ﻻ يوجد اي مشاريع",
   "welcomeBack": "مرحبًا بعودتك",
   "signInSubtitle": "سجّل الدخول إلى حسابك",
-  "password": "كلمة المرور",
-  "login": "تسجيل الدخول",
   "noAccount": "ليس لديك حساب؟",
-  "register": "إنشاء حساب"
+  "createAccount": "إنشاء حساب",
+  "registerSubtitle": "ابدأ في بضع خطوات بسيطة",
+  "password": "كلمة المرور",
+  "register": "إنشاء حساب",
+  "alreadyHaveAccount": "لديك حساب بالفعل؟",
+  "login": "تسجيل الدخول"
 }
