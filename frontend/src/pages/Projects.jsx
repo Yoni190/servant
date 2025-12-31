@@ -10,13 +10,8 @@ const Projects = () => {
 
     const { t, i18n } = useTranslation();
 
-    const [projects_ls, setProjects_ls] = useState([])
+    const [projects, setProjects] = useState([])
 
-    const projects = [
-        {id: 1, title: t("alpha"), services: 5, members: 6},
-        {id: 2, title: t("beta"), services: 3, members: 4},
-        {id: 3, title: t("gamma"), services: 8, members: 2}
-    ]
 
     useEffect(() => {
       const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
@@ -25,7 +20,7 @@ const Projects = () => {
         project.services = project.services.length
       })
 
-      setProjects_ls(localProjects)
+      setProjects(localProjects)
 
     }, [])
     
@@ -45,7 +40,7 @@ const Projects = () => {
     }
 
     const filteredProjects = useMemo(() => {
-    return projects_ls.filter(project => {
+    return projects.filter(project => {
         const matchesTitle =
         filters.title === '' ||
         project.title.toLowerCase().includes(filters.title.toLowerCase())
