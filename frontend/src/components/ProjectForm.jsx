@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 
 
-const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass }) => {
+const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass, id_pass }) => {
     const [title, setTitle] = useState(title_pass || '')
     const [description, setDescription] = useState(description_pass || '')
     const [services, setServices] = useState(services_pass || [])
@@ -43,19 +43,22 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         
         const existingProjects = JSON.parse(localStorage.getItem('projects')) || []
 
-        const newProject = {
-            id: Date.now(),
-            title,
-            description,
-            services,
-            members
+        if (id_pass) {
+            // editing: update existing project
+            const updatedProjects = existingProjects.map(p =>
+                p.id === id_pass
+                    ? { ...p, title, description, services, members }
+                    : p
+            )
+            localStorage.setItem('projects', JSON.stringify(updatedProjects))
+        } else {
+            // adding: create new project
+            const newProject = { id: Date.now(), title, description, services, members }
+            localStorage.setItem('projects', JSON.stringify([...existingProjects, newProject]))
         }
 
 
-        localStorage.setItem(
-            'projects',
-            JSON.stringify([...existingProjects, newProject])
-        )
+        
 
         navigate('/projects')
         notify()

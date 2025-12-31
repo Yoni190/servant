@@ -41,6 +41,7 @@ const EditProject = () => {
                 description_pass={project.description}
                 services_pass={project.services}
                 members_pass={project.members}
+                id_pass={project.id}
             />
             ) : (
               <p>Loading Project...</p>
