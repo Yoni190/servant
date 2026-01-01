@@ -5,8 +5,12 @@ import StatCard from '../components/StatCard.jsx'
 import { ResponsiveBar } from '@nivo/bar'
 import { ResponsivePie } from '@nivo/pie'
 import { useTranslation } from 'react-i18next'
+import usePageTitle from '../config/usePageTitle.js'
+
 
 const Home = () => {
+
+  usePageTitle('Home | Servant')
 
   const { t } = useTranslation();
 
