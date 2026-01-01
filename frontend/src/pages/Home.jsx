@@ -16,8 +16,23 @@ const Home = () => {
   const [totalServices, setTotalServices] = useState(0)
   const [totalMembers, setTotalMembers] = useState(0)
 
+  const [servicesPerProject, setServicesPerProject] = useState([])
+
   useEffect(() => {
     const localProjects = JSON.parse(localStorage.getItem('projects'))
+
+    console.log(localProjects)
+
+    const temp = []
+
+    localProjects.map((localProject) => {
+      temp.push({
+        project: localProject.title,
+        services: localProject.services.length
+      })
+    })
+
+    setServicesPerProject(temp)
 
     setProjects(localProjects)
 
@@ -25,11 +40,7 @@ const Home = () => {
     setTotalMembers(localProjects.reduce((acc, project) => acc + (Number(project.members) || 0), 0))
   }, [])
   
-  const servicesPerProject = [
-    { project: t('alpha'), services: 5 },
-    { project: t('beta'), services: 3 },
-    { project: t('gamma'), services: 8 },
-  ]
+  
 
   const accessLevels = [
     { id: t('owner'), label: t('owner'), value: 2 },
