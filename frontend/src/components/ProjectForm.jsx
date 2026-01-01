@@ -14,6 +14,10 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const [members, setMembers] = useState(members_pass || '')
     const [errors, setErrors] = useState([{}])
 
+
+    const [servicesElement, setServicesElement] = useState('')
+    const [servicesArray, setServicesArray] = useState([])
+
     const { t, i18n } = useTranslation();
 
     const notify = () => toast.success(t("projectDataSaved"), {
@@ -71,6 +75,15 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     }
 
     const handleServicesAddition = () => {
+        
+
+        const temp = servicesArray
+        temp.push(servicesElement)
+
+        setServicesArray(temp)
+        setServicesElement('')
+        
+        console.log(servicesArray)
         console.log('clicked')
     }
   return (
@@ -121,8 +134,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                         id="services"
                         className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-gray-700 dark:text-white dark:border-gray-600"
                         placeholder={t('enterProjectServices')}
-                        value={services}
-                        onChange={(e) => handleServicesChange(e)}
+                        value={servicesElement}
+                        onChange={(e) => setServicesElement(e.target.value)}
                     />
                     <button 
                     className='border px-4 rounded bg-blue-500 text-white hover:bg-blue-600 hover:cursor-pointer'
