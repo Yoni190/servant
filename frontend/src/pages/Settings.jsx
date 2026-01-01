@@ -19,6 +19,11 @@ const Settings = () => {
         autoClose: 3000,
     });
 
+    const langChangeNotify = () => toast.success(t("langChanged"), {
+        position: i18n.language === 'ar' ? "top-right" : "top-left",
+        autoClose: 3000,
+    });
+
     const handleProfileUpdate = (e) => {
         e.preventDefault();
         notify();
@@ -65,8 +70,9 @@ const Settings = () => {
     }
 
     const handleLanguageChange = (lang) => {
-
+        langChangeNotify()
         i18n.changeLanguage(lang);
+        
     }
 
 

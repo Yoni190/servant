@@ -89,5 +89,6 @@
   "login": "Login",
   "membersRequired": "Number of members is required.",
   "projectMembers": "Project Members",
-  "enterProjectMembers": "Enter Number of Project Members"
+  "enterProjectMembers": "Enter Number of Project Members",
+  "langChanged": "تم تغيير اللغة بنجاح!"
 }
