@@ -69,6 +69,10 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         const servicesArray = value.split(',').map(service => service.trim())
         setServices(servicesArray)
     }
+
+    const handleServicesAddition = () => {
+        console.log('clicked')
+    }
   return (
         <form className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-8 space-y-5 dark:bg-gray-800">
             <div className="mb-4">
@@ -111,14 +115,23 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
             <div className="mb-4">
                 <label htmlFor="services" className="block text-gray-700 text-sm font-bold mb-2 dark:text-white">{t('projectServices')}</label>
-                <input
-                    type="text"
-                    id="services"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-gray-700 dark:text-white dark:border-gray-600"
-                    placeholder={t('enterProjectServices')}
-                    value={services}
-                    onChange={(e) => handleServicesChange(e)}
-                />
+                <div className='flex'>
+                    <input
+                        type="text"
+                        id="services"
+                        className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                        placeholder={t('enterProjectServices')}
+                        value={services}
+                        onChange={(e) => handleServicesChange(e)}
+                    />
+                    <button 
+                    className='border px-4 rounded bg-blue-500 text-white hover:bg-blue-600 hover:cursor-pointer'
+                    type='button'
+                    onClick={handleServicesAddition}
+                    >
+                        +
+                    </button>
+                </div>
                 {errors.find(error => error.field === 'services') && (
                     <p className="text-red-500 text-xs mt-2">
                         {errors.find(error => error.field === 'services').message}
