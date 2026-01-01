@@ -143,6 +143,13 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                         placeholder={t('enterProjectServices')}
                         value={servicesElement}
                         onChange={(e) => setServicesElement(e.target.value)}
+                        onKeyDown={(e) => {
+                            if(e.key === 'Enter') {
+                                e.preventDefault()
+                                handleServicesAddition()
+                            }
+                        }
+                    }
                     />
                     <button 
                     className='border px-4 rounded bg-blue-500 text-white hover:bg-blue-600 hover:cursor-pointer'
@@ -156,7 +163,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                     {services.map((service, index) => (
                         
                             <div 
-                                key={service}
+                                key={index}
                                 className='bg-gray-300 p-2 border flex justify-between'
                                 >
                                 <p>
