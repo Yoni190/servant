@@ -86,6 +86,13 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         console.log(servicesArray)
         console.log('clicked')
     }
+
+    const handleServiceDeletion = (index) => {
+        setServicesArray(prev =>
+            prev.filter((_, i) => i !== index)
+        )
+    }
+
   return (
         <form className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-8 space-y-5 dark:bg-gray-800">
             <div className="mb-4">
@@ -156,7 +163,13 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                     {service}
                                 </p>
 
-                                <button className='cursor-pointer'>x</button>
+                                <button
+                                    className='cursor-pointer'
+                                    onClick={() => handleServiceDeletion(index)}
+                                    type='button'
+                                    >
+                                        x
+                                    </button>
                                 
                             </div>
                         
