@@ -109,6 +109,8 @@ const Projects = () => {
             <div className='space-y-6'>
                 <div className="bg-white rounded shadow p-4 dark:bg-gray-800">
                     <h2 className='text-lg font-semibold dark:text-white'>{t('filter')}</h2>
+
+                    {/* Filter Projects */}
                     <form action="#" className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-4'>
                         <input
                             className='border border-gray-300 rounded px-3 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white'
@@ -136,6 +138,8 @@ const Projects = () => {
                             placeholder={t('numberOfTeamMembers')}/>
                     </form>
                 </div>
+
+                {/* Projects Table */}
                 <table className='w-full bg-white rounded shadow overflow-hidden dark:bg-gray-800'>
                     <thead className={`bg-gray-100 text-left dark:bg-gray-800 ${i18n.language === "ar" ? "text-right" : "text-left"}`}>
                         <tr>
