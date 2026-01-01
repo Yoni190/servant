@@ -4,11 +4,15 @@ import Sidebar from '../components/Sidebar'
 import ProjectForm from '../components/ProjectForm'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
+import usePageTitle from '../config/usePageTitle'
+
 
 
 
 
 const EditProject = () => {
+
+    usePageTitle('Edit Project | Servant')
 
     const { id } = useParams()
 

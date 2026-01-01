@@ -3,11 +3,15 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import ProjectForm from '../components/ProjectForm'
 import { useTranslation } from 'react-i18next'
+import usePageTitle from '../config/usePageTitle'
+
 
 
 
 
 const AddProject = () => {
+
+    usePageTitle('Add Project | Servant')
 
     const { t } = useTranslation();
 

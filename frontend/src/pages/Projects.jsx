@@ -4,9 +4,12 @@ import Sidebar from '../components/Sidebar'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { useTranslation } from 'react-i18next'
+import usePageTitle from '../config/usePageTitle'
 
 
 const Projects = () => {
+
+    usePageTitle('Projects | Servant')
 
     const { t, i18n } = useTranslation();
 

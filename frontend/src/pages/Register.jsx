@@ -1,9 +1,13 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import usePageTitle from '../config/usePageTitle'
+
 
 
 const Register = () => {
+
+  usePageTitle('Sign Up | Servant')
 
   const { t, i18n } = useTranslation()
 

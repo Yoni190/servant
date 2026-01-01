@@ -5,10 +5,14 @@ import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
+import usePageTitle from '../config/usePageTitle'
+
 
 
 
 const Settings = () => {
+
+    usePageTitle('Settings | Servant')
 
     const { t, i18n } = useTranslation();
 
