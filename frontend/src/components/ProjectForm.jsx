@@ -77,18 +77,18 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const handleServicesAddition = () => {
         
 
-        const temp = servicesArray
+        const temp = services
         temp.push(servicesElement)
 
-        setServicesArray(temp)
+        setServices(temp)
         setServicesElement('')
 
-        console.log(servicesArray)
+        console.log(services)
         console.log('clicked')
     }
 
     const handleServiceDeletion = (index) => {
-        setServicesArray(prev =>
+        setServices(prev =>
             prev.filter((_, i) => i !== index)
         )
     }
@@ -153,7 +153,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                     </button>
                 </div>
                 <div className='grid grid-cols-4 gap-3 mt-2'>
-                    {servicesArray.map((service, index) => (
+                    {services.map((service, index) => (
                         
                             <div 
                                 key={service}
