@@ -82,7 +82,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
         setServicesArray(temp)
         setServicesElement('')
-        
+
         console.log(servicesArray)
         console.log('clicked')
     }
@@ -144,6 +144,23 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                     >
                         +
                     </button>
+                </div>
+                <div className='grid grid-cols-4 gap-3 mt-2'>
+                    {servicesArray.map((service, index) => (
+                        
+                            <div 
+                                key={service}
+                                className='bg-gray-300 p-2 border flex justify-between'
+                                >
+                                <p>
+                                    {service}
+                                </p>
+
+                                <button className='cursor-pointer'>x</button>
+                                
+                            </div>
+                        
+                    ))}
                 </div>
                 {errors.find(error => error.field === 'services') && (
                     <p className="text-red-500 text-xs mt-2">
