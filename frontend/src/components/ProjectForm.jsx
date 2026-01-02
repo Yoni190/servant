@@ -215,17 +215,15 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
             <div className='w-full max-w-lg rounded bg-white shadow-lg p-4'>
                     {/* Tabs */}
                     <div>
-                        <button
-                        className='border rounded bg-blue-500 text-white p-2 hover:bg-blue-600 hover:cursor-pointer'
-                        >
-                            Chapa
-                        </button>
-
-                        <button
-                        className='border rounded bg-gray-400 text-white p-2 hover:bg-gray-600 hover:cursor-pointer'
-                        >
-                            Taqnayat
-                        </button>
+                        {services.map((service) => (
+                            <button
+                            className='border rounded bg-blue-500 text-white p-2 hover:bg-blue-600 hover:cursor-pointer'
+                            key={service}
+                            >
+                                {service}
+                            </button>
+                        ))}
+                        
                     </div>
 
                     {/* Service URL */}
