@@ -107,6 +107,32 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         })
     }
 
+    const storeServiceData = (index) => {
+        console.log("Saved")
+        
+        const serviceLink = serviceLinks[index]
+        
+        const storedLinks = JSON.parse(localStorage.getItem('serviceData') || '[]')
+
+        if(storedLinks.find(item => item.serviceIndex === index)) {
+            console.log("No")
+            const serviceIndex = storedLinks.findIndex(item => item.serviceIndex === index)
+
+            storedLinks[serviceIndex].link = serviceLink
+        } else {
+            storedLinks.push({
+                serviceIndex: index,
+                link: serviceLink
+            }
+        )
+        }
+        
+
+        localStorage.setItem('serviceData', JSON.stringify(storedLinks))
+        console.log(storedLinks)
+        
+    }
+
   return (
         <div className="dark:bg-gray-800 flex gap-5">
             <form className='bg-white rounded-2xl shadow-lg p-8 space-y-5 w-full max-w-lg'>
@@ -281,7 +307,11 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 className='border rounded p-2'
                                                 id="password" />
                                             </div>
-                                            <button className='border rounded bg-blue-500 text-white p-2 mt-2 w-full hover:bg-blue-600 hover:cursor-pointer'>Save</button>
+                                            <button className='border rounded bg-blue-500 text-white p-2 mt-2 w-full hover:bg-blue-600 hover:cursor-pointer'
+                                            onClick={() => storeServiceData(index)}
+                                            >
+                                                Save
+                                            </button>
                                     </div>
                                 )
                                 )
