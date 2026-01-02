@@ -97,6 +97,16 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         )
     }
 
+    const handleServiceLinkChange = (e, index) => {
+         const value = e.target.value
+
+        setServiceLinks(prev => {
+            const updated = [...prev]
+            updated[index] = value
+            return updated
+        })
+    }
+
   return (
         <div className="dark:bg-gray-800 flex gap-5">
             <form className='bg-white rounded-2xl shadow-lg p-8 space-y-5 w-full max-w-lg'>
@@ -235,8 +245,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
                             {services.map((service, index) => {
                                 return (
-                                    index == selectedService && (
-                                    <div key={service}>
+                                    index === selectedService && (
+                                    <div key={index}>
                                             {/* Service URL */}
                                             <div className='flex flex-col mt-2'>
                                                 <label htmlFor="link">Service URL</label>
@@ -244,8 +254,10 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 type="text"
                                                 name="link"
                                                 placeholder='Enter service url'
+                                                value={serviceLinks[index] || ""}
+                                                onChange={(e) => handleServiceLinkChange(e, index)}
                                                 className='border rounded p-2'
-                                                id="link" />
+                                                id={`link-${index}`} />
                                             </div>
 
                                             {/* Service Email */}
