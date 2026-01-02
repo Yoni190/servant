@@ -18,6 +18,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const [servicesElement, setServicesElement] = useState('')
     const [servicesArray, setServicesArray] = useState([])
 
+    const [selectedService, setSelectedService] = useState(0)
+
     const { t, i18n } = useTranslation();
 
     const notify = () => toast.success(t("projectDataSaved"), {
@@ -217,10 +219,11 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                 <div className='w-full max-w-lg rounded bg-white shadow-lg p-4'>
                         {/* Tabs */}
                         <div>
-                            {services.map((service) => (
+                            {services.map((service, index) => (
                                 <button
-                                className='border rounded bg-blue-500 text-white p-2 hover:bg-blue-600 hover:cursor-pointer'
+                                className={`border rounded ${selectedService === index ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-500 hover:bg-gray-600'} text-white p-2 hover:cursor-pointer`}
                                 key={service}
+                                onClick={() => setSelectedService(index)}
                                 >
                                     {service}
                                 </button>
