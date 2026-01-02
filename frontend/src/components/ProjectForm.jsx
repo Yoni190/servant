@@ -20,6 +20,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
     const [selectedService, setSelectedService] = useState(0)
 
+    const [serviceLinks, setServiceLinks] = useState([])
+
     const { t, i18n } = useTranslation();
 
     const notify = () => toast.success(t("projectDataSaved"), {
@@ -231,40 +233,53 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                             
                         </div>
 
-                        {/* Service URL */}
-                        <div className='flex flex-col mt-2'>
-                            <label htmlFor="link">Service URL</label>
-                            <input
-                            type="text"
-                            name="link"
-                            placeholder='Enter service url'
-                            className='border rounded p-2'
-                            id="link" />
-                        </div>
+                            {services.map((service, index) => {
+                                return (
+                                    index == selectedService && (
+                                    <div key={service}>
+                                            {/* Service URL */}
+                                            <div className='flex flex-col mt-2'>
+                                                <label htmlFor="link">Service URL</label>
+                                                <input
+                                                type="text"
+                                                name="link"
+                                                placeholder='Enter service url'
+                                                className='border rounded p-2'
+                                                id="link" />
+                                            </div>
 
-                        {/* Service Email */}
-                        <div className='flex flex-col mt-2'>
-                            <label htmlFor="email">Service Email</label>
-                            <input
-                            type="email"
-                            name="email"
-                            placeholder='Enter email used for the service'
-                            className='border rounded p-2'
-                            id="email" />
-                        </div>
+                                            {/* Service Email */}
+                                            <div className='flex flex-col mt-2'>
+                                                <label htmlFor="email">Service Email</label>
+                                                <input
+                                                type="email"
+                                                name="email"
+                                                placeholder='Enter email used for the service'
+                                                className='border rounded p-2'
+                                                id="email" />
+                                            </div>
 
-                        {/* Service Password */}
-                        <div className='flex flex-col mt-2'>
-                            <label htmlFor="password">Service Password</label>
-                            <input
-                            type="password"
-                            name="password"
-                            placeholder='Enter password used for the service'
-                            className='border rounded p-2'
-                            id="password" />
-                        </div>
+                                            {/* Service Password */}
+                                            <div className='flex flex-col mt-2'>
+                                                <label htmlFor="password">Service Password</label>
+                                                <input
+                                                type="password"
+                                                name="password"
+                                                placeholder='Enter password used for the service'
+                                                className='border rounded p-2'
+                                                id="password" />
+                                            </div>
+                                            <button className='border rounded bg-blue-500 text-white p-2 mt-2 w-full hover:bg-blue-600 hover:cursor-pointer'>Save</button>
+                                    </div>
+                                )
+                                )
+                                
+                                
+                            })}
+                            
+                            
 
-                        <button className='border rounded bg-blue-500 text-white p-2 mt-2 w-full hover:bg-blue-600 hover:cursor-pointer'>Save</button>
+                        
                 </div>
             )}
             
