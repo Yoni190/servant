@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 
 
-const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass, id_pass }) => {
+const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass, id_pass, service_urls }) => {
     const [title, setTitle] = useState(title_pass || '')
     const [description, setDescription] = useState(description_pass || '')
     const [services, setServices] = useState(services_pass || [])
@@ -20,7 +20,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
     const [selectedService, setSelectedService] = useState(0)
 
-    const [serviceLinks, setServiceLinks] = useState([])
+    const [serviceLinks, setServiceLinks] = useState(service_urls || [])
 
     const { t, i18n } = useTranslation();
 
@@ -123,18 +123,35 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         
         const storedLinks = JSON.parse(localStorage.getItem('serviceData') || '[]')
 
-        if(storedLinks.find(item => item.serviceIndex === index)) {
+        const projects = JSON.parse(localStorage.getItem('projects') || '[]')
+
+        const projectIndex = id_pass || projects.length
+
+        if(storedLinks.find(item => item.projectIndex === projectIndex)) {
+            console.log('inside project if')
+            if(storedLinks.find(item => item.serviceIndex === index)) {
             console.log("No")
             const serviceIndex = storedLinks.findIndex(item => item.serviceIndex === index)
 
             storedLinks[serviceIndex].link = serviceLink
-        } else {
-            storedLinks.push({
-                serviceIndex: index,
-                link: serviceLink
+            } else {
+                storedLinks.push({
+                    projectIndex,
+                    serviceIndex: index,
+                    link: serviceLink
+                }
+            )
             }
-        )
+        } else {
+                storedLinks.push({
+                    projectIndex,
+                    serviceIndex: index,
+                    link: serviceLink
+                }
+            )
         }
+
+        
         
 
         localStorage.setItem('serviceData', JSON.stringify(storedLinks))

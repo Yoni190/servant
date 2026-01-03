@@ -23,6 +23,11 @@ const EditProject = () => {
 
       const localProject = localProjects.find(project => project.id == Number(id))
 
+      const localLinks = JSON.parse(localStorage.getItem('serviceData'))
+      
+
+      console.log(localLinks)
+
       setProject(localProject)
     }, [])
 
