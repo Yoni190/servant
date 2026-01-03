@@ -24,6 +24,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
     const { t, i18n } = useTranslation();
 
+    console.log(service_urls)
+
     const notify = () => toast.success(t("projectDataSaved"), {
         position: i18n.language === 'ar' ? "top-left" : "top-right",
         autoClose: 3000,
