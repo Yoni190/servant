@@ -19,10 +19,16 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const [servicesArray, setServicesArray] = useState([])
 
     const [selectedService, setSelectedService] = useState(0)
+    
+    const [serviceLinks, setServiceLinks] = useState(
+    Array.isArray(service_urls) ? service_urls : []
+    )
 
-    const [serviceLinks, setServiceLinks] = useState(service_urls || [])
 
     const { t, i18n } = useTranslation();
+
+
+    
 
     console.log(service_urls)
 
@@ -45,7 +51,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
             newErrors.push({ field: 'services', message: t('servicesRequired') })
         } if(!members) {
             newErrors.push({ field: 'members', message: t('membersRequired') })
-        }
+        } 
         if (newErrors.length > 0) {
             setErrors(newErrors)
             return
@@ -83,10 +89,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const handleServicesAddition = () => {
         
 
-        const temp = services
-        temp.push(servicesElement)
+        setServices(prev => [...prev, servicesElement])
 
-        setServices(temp)
         setServicesElement('')
 
         console.log(services)
@@ -106,28 +110,34 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         setServices(prev =>
             prev.filter((_, i) => i !== index)
         )
+        setServiceLinks(prev => prev.filter((_, i) => i !== index))
     }
 
     const handleServiceLinkChange = (e, index) => {
-         const value = e.target.value
+        const value = e.target.value;
 
         setServiceLinks(prev => {
-            const updated = [...prev]
-            updated[index] = value
-            return updated
-        })
-    }
+            const updated = [...prev];
+            updated[index] = {
+            ...(updated[index] || {}),
+            link: value
+            };
+            return updated;
+        });
+        };
+
 
     const storeServiceData = (index) => {
         console.log("Saved")
         
-        const serviceLink = serviceLinks[index]
+        const serviceLink = serviceLinks[index]?.link || ''
+
         
         const storedLinks = JSON.parse(localStorage.getItem('serviceData') || '[]')
 
         const projects = JSON.parse(localStorage.getItem('projects') || '[]')
 
-        const projectIndex = id_pass || projects.length
+        const projectIndex =  projects.length
 
         if(storedLinks.find(item => item.projectIndex === projectIndex)) {
             console.log('inside project if')
@@ -308,7 +318,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 type="text"
                                                 name="link"
                                                 placeholder='Enter service url'
-                                                value={serviceLinks[index] || ""}
+                                                value={serviceLinks[index]?.link || ''}
                                                 onChange={(e) => handleServiceLinkChange(e, index)}
                                                 className='border rounded p-2'
                                                 id={`link-${index}`} />

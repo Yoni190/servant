@@ -29,7 +29,7 @@ const EditProject = () => {
 
       const localLinks = JSON.parse(localStorage.getItem('serviceData'))
 
-      const links = localLinks.find(link => link.projectIndex == Number(localProjectIndex))
+      const links = localLinks.filter(link => link.projectIndex == Number(localProjectIndex))
 
 
       console.log(localLinks)
