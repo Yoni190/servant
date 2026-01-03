@@ -23,7 +23,7 @@ const Home = () => {
   const [servicesPerProject, setServicesPerProject] = useState([])
 
   useEffect(() => {
-    const localProjects = JSON.parse(localStorage.getItem('projects'))
+    const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
 
     console.log(localProjects)
 
