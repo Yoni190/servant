@@ -51,7 +51,9 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
             newErrors.push({ field: 'services', message: t('servicesRequired') })
         } if(!members) {
             newErrors.push({ field: 'members', message: t('membersRequired') })
-        } 
+        } if(!Number.isInteger(Number(members))) {
+            newErrors.push({ field: 'members', message: "Please enter a number"})
+        }
         if (newErrors.length > 0) {
             setErrors(newErrors)
             return
