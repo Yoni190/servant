@@ -17,6 +17,7 @@ const EditProject = () => {
     const { id } = useParams()
 
     const [project, setProject] = useState(null)
+    const [links, setLinks] = useState(null)
 
     useEffect(() => {
       const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
@@ -24,11 +25,14 @@ const EditProject = () => {
       const localProject = localProjects.find(project => project.id == Number(id))
 
       const localLinks = JSON.parse(localStorage.getItem('serviceData'))
-      
+
+      const links = localLinks.find(link => link.projectIndex == Number(id))
+
 
       console.log(localLinks)
 
       setProject(localProject)
+      setLinks(links)
     }, [])
 
     
@@ -51,6 +55,7 @@ const EditProject = () => {
                 services_pass={project.services}
                 members_pass={project.members}
                 id_pass={project.id}
+                service_urls={links}
             />
             ) : (
               <p>Loading Project...</p>
