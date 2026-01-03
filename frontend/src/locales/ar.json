@@ -90,5 +90,6 @@
   "membersRequired": "يرجى ادخال عدد اعضاء المشروع",
   "projectMembers": "اعضاء المشروع",
   "enterProjectMembers": "ادخل عدد اعضاء المشروع",
-  "langChanged": "Language has changed successfully!"
+  "langChanged": "Language has changed successfully!",
+  "membersNumber": "يرجى ادخال رقم"
 }
