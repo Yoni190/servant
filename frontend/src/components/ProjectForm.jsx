@@ -89,13 +89,15 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     }
 
     const handleServicesAddition = () => {
-        
 
-        setServices(prev => [...prev, servicesElement])
+        const services = {id: Date.now(), name: servicesElement}
+        console.log(services)
+
+        setServices(prev => [...prev, services])
 
         setServicesElement('')
 
-        console.log(services)
+        
         console.log('clicked')
     }
 
@@ -246,7 +248,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                     className='bg-gray-300 p-2 border flex justify-between'
                                     >
                                     <p>
-                                        {service}
+                                        {service.name}
                                     </p>
                                     <button
                                         className='cursor-pointer'
@@ -300,10 +302,10 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                             {services.map((service, index) => (
                                 <button
                                 className={`border rounded ${selectedService === index ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-500 hover:bg-gray-600'} text-white p-2 hover:cursor-pointer`}
-                                key={service}
+                                key={service.name}
                                 onClick={() => setSelectedService(index)}
                                 >
-                                    {service}
+                                    {service.name}
                                 </button>
                             ))}
                             
@@ -364,6 +366,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                         
                 </div>
             )}
+
+            
             
             
         </div>
