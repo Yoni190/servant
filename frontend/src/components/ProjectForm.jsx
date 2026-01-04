@@ -141,6 +141,10 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
         const projects = JSON.parse(localStorage.getItem('projects') || '[]')
 
+        projects[0].services[0].link = storedLinks[0].link
+
+        localStorage.setItem('projects', JSON.stringify(projects))
+
         const projectIndex =  projects.length
 
         if(storedLinks.find(item => item.projectIndex === projectIndex)) {
