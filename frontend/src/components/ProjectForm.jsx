@@ -331,33 +331,6 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 className='border rounded p-2'
                                                 id={`link-${index}`} />
                                             </div>
-
-                                            {/* Service Email */}
-                                            <div className='flex flex-col mt-2'>
-                                                <label htmlFor="email">Service Email</label>
-                                                <input
-                                                type="email"
-                                                name="email"
-                                                placeholder='Enter email used for the service'
-                                                className='border rounded p-2'
-                                                id="email" />
-                                            </div>
-
-                                            {/* Service Password */}
-                                            <div className='flex flex-col mt-2'>
-                                                <label htmlFor="password">Service Password</label>
-                                                <input
-                                                type="password"
-                                                name="password"
-                                                placeholder='Enter password used for the service'
-                                                className='border rounded p-2'
-                                                id="password" />
-                                            </div>
-                                            <button className='border rounded bg-blue-500 text-white p-2 mt-2 w-full hover:bg-blue-600 hover:cursor-pointer'
-                                            onClick={() => storeServiceData(index)}
-                                            >
-                                                Save
-                                            </button>
                                     </div>
                                 )
                                 )
