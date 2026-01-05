@@ -320,16 +320,21 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                     index === selectedService && (
                                     <div key={index}>
                                             {/* Service URL */}
-                                            <div className='flex flex-col mt-2'>
-                                                <label htmlFor="link">Service URL</label>
-                                                <input
-                                                type="text"
-                                                name="link"
-                                                placeholder='Enter service url'
-                                                value={serviceLinks[index]?.link || ''}
-                                                onChange={(e) => handleServiceLinkChange(e, index)}
-                                                className='border rounded p-2'
-                                                id={`link-${index}`} />
+                                            <label htmlFor="link">Service URL</label>
+                                            <div className='flex gap-2'>
+                                                <div className='flex flex-col mt-2 w-full'>
+                                                    <input
+                                                    type="text"
+                                                    name="link"
+                                                    placeholder='Enter service url'
+                                                    value={serviceLinks[index]?.link || ''}
+                                                    onChange={(e) => handleServiceLinkChange(e, index)}
+                                                    className='border rounded p-2'
+                                                    id={`link-${index}`} />
+                                                </div>
+                                                <button className='bg-blue-500 px-4 text-white rounded hover:bg-blue-600 hover:cursor-pointer'>
+                                                    +
+                                                </button>
                                             </div>
                                     </div>
                                 )
