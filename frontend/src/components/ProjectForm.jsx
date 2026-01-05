@@ -24,6 +24,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     Array.isArray(service_urls) ? service_urls : []
     )
 
+    const [newServiceLinks, setNewServiceLinks] = useState([])
+
 
     const { t, i18n } = useTranslation();
 
@@ -71,6 +73,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
             localStorage.setItem('projects', JSON.stringify(updatedProjects))
         } else {
             // adding: create new project
+
             const newProject = { id: Date.now(), title, description, services, members }
             localStorage.setItem('projects', JSON.stringify([...existingProjects, newProject]))
         }
@@ -178,6 +181,20 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         console.log(storedLinks)
         
     }
+
+
+    const storeServiceLink = (index) => {
+        setServices(prev =>
+            prev.map((service, i) =>
+            i === index
+                ? { ...service, link: serviceLinks[index].link }
+                : service
+            )
+        )
+
+        console.log(services)
+        }
+
 
   return (
         <div className="dark:bg-gray-800 flex gap-5">
@@ -332,7 +349,10 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                     className='border rounded p-2'
                                                     id={`link-${index}`} />
                                                 </div>
-                                                <button className='bg-blue-500 px-4 text-white rounded hover:bg-blue-600 hover:cursor-pointer'>
+                                                <button
+                                                    className='bg-blue-500 px-4 text-white rounded hover:bg-blue-600 hover:cursor-pointer'
+                                                    onClick={() => storeServiceLink(index)}
+                                                    >
                                                     +
                                                 </button>
                                             </div>
