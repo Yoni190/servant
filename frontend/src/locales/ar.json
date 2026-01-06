@@ -91,5 +91,6 @@
   "projectMembers": "اعضاء المشروع",
   "enterProjectMembers": "ادخل عدد اعضاء المشروع",
   "langChanged": "Language has changed successfully!",
-  "membersNumber": "يرجى ادخال رقم"
+  "membersNumber": "يرجى ادخال رقم",
+  "linkSavedSuccessfully": "تم حفظ الرابط بنجاح!"
 }

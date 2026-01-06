@@ -91,5 +91,6 @@
   "projectMembers": "Project Members",
   "enterProjectMembers": "Enter Number of Project Members",
   "langChanged": "تم تغيير اللغة بنجاح!",
-  "membersNumber": "Please enter a number"
+  "membersNumber": "Please enter a number",
+  "linkSavedSuccessfully": "Link Saved Successfully"
 }
