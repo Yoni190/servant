@@ -39,6 +39,11 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         autoClose: 3000,
     });
 
+    const linkAdded = () => toast.success(t("linkSavedSuccessfully"), {
+        position: i18n.language === 'ar' ? "top-left" : "top-right",
+        autoClose: 3000,
+    })
+
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -191,7 +196,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                 : service
             )
         )
-
+        linkAdded()
         console.log(services)
         }
 
