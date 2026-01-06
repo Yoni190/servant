@@ -21,7 +21,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const [selectedService, setSelectedService] = useState(0)
     
     const [serviceLinks, setServiceLinks] = useState(
-    Array.isArray(service_urls) ? service_urls : []
+    Array.isArray(services_pass) ? services_pass : []
     )
 
     const [newServiceLinks, setNewServiceLinks] = useState([])

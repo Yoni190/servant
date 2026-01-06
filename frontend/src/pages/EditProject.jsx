@@ -27,15 +27,15 @@ const EditProject = () => {
       const localProjectIndex = localProjects.findIndex(project => project.id == Number(id))
 
 
-      const localLinks = JSON.parse(localStorage.getItem('serviceData'))
+      // const localLinks = JSON.parse(localStorage.getItem('serviceData'))
 
-      const links = localLinks.filter(link => link.projectIndex == Number(localProjectIndex))
+      // const links = localLinks.filter(link => link.projectIndex == Number(localProjectIndex))
 
 
-      console.log(localLinks)
+      // console.log(localLinks)
 
       setProject(localProject)
-      setLinks(links)
+      // setLinks(links)
     }, [])
 
     
