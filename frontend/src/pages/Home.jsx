@@ -63,7 +63,7 @@ const Home = () => {
                   title: t("christmas"),
                   text: t("christmasText"),
                   confirmButtonColor: "#d33",
-                  confirmButtonText: t("ok"),
+                  confirmButtonText: t("okButton"),
       })
 
       localStorage.setItem('christmas_shown', true)
