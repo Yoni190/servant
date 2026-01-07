@@ -6,6 +6,7 @@ import { ResponsiveBar } from '@nivo/bar'
 import { ResponsivePie } from '@nivo/pie'
 import { useTranslation } from 'react-i18next'
 import usePageTitle from '../config/usePageTitle.js'
+import Swal from 'sweetalert2'
 
 
 const Home = () => {
@@ -35,6 +36,7 @@ const Home = () => {
         services: localProject.services.length
       })
     })
+    
 
     setServicesPerProject(temp)
 
@@ -43,6 +45,23 @@ const Home = () => {
     setTotalServices(localProjects.reduce((acc, project) => acc + (project.services?.length || 0), 0))
     setTotalMembers(localProjects.reduce((acc, project) => acc + (Number(project.members) || 0), 0))
   }, [])
+
+
+  const getFormattedDate = () => {
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const date = today.getDate();
+    return `${month}/${date}`;
+  };
+
+  // useEffect(() => {
+  //     Swal.fire({
+  //                 title: t("christmas"),
+  //                 text: t("christmasText"),
+  //                 confirmButtonColor: "#d33",
+  //                 confirmButtonText: t("ok"),
+  //     })
+  //   }, [])
   
   
 
