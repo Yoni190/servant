@@ -54,14 +54,16 @@ const Home = () => {
     return `${month}/${date}`;
   };
 
-  // useEffect(() => {
-  //     Swal.fire({
-  //                 title: t("christmas"),
-  //                 text: t("christmasText"),
-  //                 confirmButtonColor: "#d33",
-  //                 confirmButtonText: t("ok"),
-  //     })
-  //   }, [])
+  useEffect(() => {
+    if(getFormattedDate() === '1/7') {
+      Swal.fire({
+                  title: t("christmas"),
+                  text: t("christmasText"),
+                  confirmButtonColor: "#d33",
+                  confirmButtonText: t("ok"),
+      })
+    }
+    }, [])
   
   
 
