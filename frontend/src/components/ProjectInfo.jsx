@@ -48,7 +48,9 @@ const ProjectInfo = ({ project }) => {
                     {service?.name}
                   </td>
                   <td className="px-4 py-3 text-blue-600 truncate">
-                    {service?.link}
+                    <a href={service?.link} target="_blank">
+                        {service?.link}
+                    </a>
                   </td>
                   <td className="px-4 py-3">
                     {service?.email}
