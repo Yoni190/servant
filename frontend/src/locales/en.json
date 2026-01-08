@@ -94,5 +94,6 @@
   "membersNumber": "Please enter a number",
   "linkSavedSuccessfully": "Link Saved Successfully",
   "christmas": "🎄 Merry Christmas!",
-  "christmasText": "Wishing you a joyful Christmas filled with peace, happiness, and success. Thank you for being part of Servant."
+  "christmasText": "Wishing you a joyful Christmas filled with peace, happiness, and success. Thank you for being part of Servant.",
+  "downloadProjectText": "Are you sure you want to download the service data? This file contains sensitive information such as emails and passwords."
 }

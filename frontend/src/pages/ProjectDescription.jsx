@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import ProjectInfo from '../components/ProjectInfo'
 import { jsPDF } from "jspdf"
 import autoTable from "jspdf-autotable"
+import Swal from 'sweetalert2'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -12,6 +14,8 @@ const ProjectDescription = () => {
 
     const { id } = useParams()
     const [project, setProject] = useState()
+
+    const { t } = useTranslation()
 
 
     useEffect(() => {
@@ -21,30 +25,41 @@ const ProjectDescription = () => {
     }, [])
 
     const downloadProjectInfo = () => {
-        const pdf = new jsPDF()
+        Swal.fire({
+          title: t("warning"),
+          text: t("downloadProjectText"),
+          icon: "warning",
 
-        const rows = project.services.map((service) => [
-          service.name,
-          service.email,
-          service.password
-        ])
+          showCancelButton: true
+        }).then((result) => {
+          if(result.isConfirmed) {
+            const pdf = new jsPDF()
 
-        pdf.setFontSize(16)
-        pdf.text('Project Info', 20, 20)
+            const rows = project.services.map((service) => [
+              service.name,
+              service.email,
+              service.password
+            ])
 
-        pdf.setFontSize(12)
-        pdf.text(`Name: ${project.title}`, 20, 40)
-        pdf.text(`Description: ${project.description}`, 20, 50)
-        pdf.text(`Team Members: ${project.members}`, 20, 60)
+            pdf.setFontSize(16)
+            pdf.text('Project Info', 20, 20)
 
-        autoTable(pdf, {
-          startY: 70,
-          head: [["Name", "Email", "Password"]],
-          body: rows
-        })
+            pdf.setFontSize(12)
+            pdf.text(`Name: ${project.title}`, 20, 40)
+            pdf.text(`Description: ${project.description}`, 20, 50)
+            pdf.text(`Team Members: ${project.members}`, 20, 60)
+
+            autoTable(pdf, {
+              startY: 70,
+              head: [["Name", "Email", "Password"]],
+              body: rows
+            })
 
 
-        pdf.save("project-desc.pdf")
+            pdf.save("project-desc.pdf")
+          }
+        }) 
+        
 
     }
     
