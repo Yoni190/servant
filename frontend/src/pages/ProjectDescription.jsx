@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { useParams } from 'react-router-dom'
 import ProjectInfo from '../components/ProjectInfo'
+import { jsPDF } from "jspdf"
 
 
 
@@ -19,7 +20,17 @@ const ProjectDescription = () => {
     }, [])
 
     const downloadProjectInfo = () => {
-        console.log('Downloading...')
+        const pdf = new jsPDF()
+
+        pdf.setFontSize(16)
+        pdf.text('Project Info', 20, 20)
+
+        pdf.setFontSize(12)
+        pdf.text(`Name: ${project.title}`, 20, 40)
+        pdf.text(`Description: ${project.description}`, 20, 50)
+
+        pdf.save("project-desc.pdf")
+
     }
     
 
