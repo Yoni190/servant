@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { useParams } from 'react-router-dom'
@@ -7,7 +7,16 @@ import { useParams } from 'react-router-dom'
 const ProjectDescription = () => {
 
     const { id } = useParams()
+    const [project, setProject] = useState()
+
+
+    useEffect(() => {
+      const localProject = JSON.parse(localStorage.getItem('projects')).find(project => project.id == Number(id))
+
+      console.log(localProject)
+    }, [])
     
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
