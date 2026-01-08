@@ -13,30 +13,21 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const [services, setServices] = useState(services_pass || [])
     const [members, setMembers] = useState(members_pass || '')
     const [errors, setErrors] = useState([{}])
-
-
     const [servicesElement, setServicesElement] = useState('')
-
     const [selectedService, setSelectedService] = useState(0)
-
     const [serviceData, setServiceData] = useState(
         Array.isArray(services_pass) ? service_pass : []
     )
-    
-
-
 
     const { t, i18n } = useTranslation();
 
-
-    
-
-
+    // Project creation confirmation message
     const notify = () => toast.success(t("projectDataSaved"), {
         position: i18n.language === 'ar' ? "top-left" : "top-right",
         autoClose: 3000,
     });
 
+    // Link addition confirmation message
     const linkAdded = () => toast.success(t("linkSavedSuccessfully"), {
         position: i18n.language === 'ar' ? "top-left" : "top-right",
         autoClose: 3000,
@@ -44,6 +35,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
     const navigate = useNavigate()
 
+    // Submitting the project data
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -88,8 +80,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         notify()
     }
 
-    
-
+    // Adding services to the project
     const handleServicesAddition = () => {
 
         const services = {id: Date.now(), name: servicesElement}
@@ -103,6 +94,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         console.log('clicked')
     }
 
+    // Deleting services from the project
     const handleServiceDeletion = (index) => {
 
         const serviceData = JSON.parse(localStorage.getItem('serviceData'))
@@ -119,6 +111,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         setServiceLinks(prev => prev.filter((_, i) => i !== index))
     }
 
+    // Handle change of service data(link, email, password)
     const handleServiceChange = (e, field, index) => {
         setServiceData(prev => {
             const updated = [...prev];
@@ -130,10 +123,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         });
         };
 
-
-
-
-
+    // Store service data
     const storeServiceLink = (index) => {
         setServices(prev =>
             prev.map((service, i) =>
