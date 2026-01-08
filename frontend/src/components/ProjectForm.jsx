@@ -19,6 +19,10 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const [servicesArray, setServicesArray] = useState([])
 
     const [selectedService, setSelectedService] = useState(0)
+
+    const [serviceData, setServiceData] = useState(
+        Array.isArray(services_pass) ? service_pass : []
+    )
     
     const [serviceLinks, setServiceLinks] = useState(
     Array.isArray(services_pass) ? services_pass : []
@@ -131,45 +135,17 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         setServiceLinks(prev => prev.filter((_, i) => i !== index))
     }
 
-    const handleServiceLinkChange = (e, index) => {
-        const value = e.target.value;
-
-        setServiceLinks(prev => {
+    const handleServiceChange = (e, field, index) => {
+        setServiceData(prev => {
             const updated = [...prev];
             updated[index] = {
             ...(updated[index] || {}),
-            link: value
+            [field]: e.target.value
             };
             return updated;
         });
         };
 
-
-        const handleServiceEmailChange = (e, index) => {
-            const value = e.target.value;
-
-            setServiceEmails(prev => {
-                const updated = [...prev];
-                updated[index] = {
-                ...(updated[index] || {}),
-                email: value
-                };
-                return updated;
-            });
-            };
-
-        const handleServicePasswordChange = (e, index) => {
-            const value = e.target.value;
-
-            setServicePasswords(prev => {
-                const updated = [...prev];
-                updated[index] = {
-                ...(updated[index] || {}),
-                password: value
-                };
-                return updated;
-            });
-        };
 
 
 
@@ -178,7 +154,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         setServices(prev =>
             prev.map((service, i) =>
             i === index
-                ? { ...service, link: serviceLinks[index].link, email:serviceEmails[index].email, password:servicePasswords[index].password }
+                ? { ...service, link: serviceData[index].link, email:serviceData[index].email, password:serviceData[index].password }
                 : service
             )
         )
@@ -335,8 +311,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 type="text"
                                                 name="link"
                                                 placeholder='Enter service url'
-                                                value={serviceLinks[index]?.link || ''}
-                                                onChange={(e) => handleServiceLinkChange(e, index)}
+                                                value={serviceData[index]?.link || ''}
+                                                onChange={(e) => handleServiceChange(e, "link", index)}
                                                 className='border rounded p-2'
                                                 id={`link-${index}`} />
                                             </div>
@@ -348,8 +324,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 type="email"
                                                 name="email"
                                                 placeholder='Enter service email'
-                                                value={serviceEmails[index]?.email || ''}
-                                                onChange={(e) => handleServiceEmailChange(e, index)}
+                                                value={serviceData[index]?.email || ''}
+                                                onChange={(e) => handleServiceChange(e, "email", index)}
                                                 className='border rounded p-2'
                                                 id={`email-${index}`} />
                                             </div>
@@ -361,8 +337,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 type="password"
                                                 name="password"
                                                 placeholder='Enter service password'
-                                                value={servicePasswords[index]?.password || ''}
-                                                onChange={(e) => handleServicePasswordChange(e, index)}
+                                                value={serviceData[index]?.password || ''}
+                                                onChange={(e) => handleServiceChange(e, "password", index)}
                                                 className='border rounded p-2'
                                                 id={`password-${index}`} />
                                             </div>
