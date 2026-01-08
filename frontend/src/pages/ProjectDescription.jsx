@@ -17,6 +17,10 @@ const ProjectDescription = () => {
 
       setProject(localProject)
     }, [])
+
+    const downloadProjectInfo = () => {
+        console.log('Downloading...')
+    }
     
 
   return (
@@ -25,7 +29,10 @@ const ProjectDescription = () => {
       <div className="flex flex-1">
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
-            <h1 className='text-2xl font-semibold dark:text-white'>Project Description</h1>
+            <div className='flex justify-between'>
+                <h1 className='text-2xl font-semibold dark:text-white'>Project Description</h1>
+                <button className='border rounded bg-blue-500 text-white p-2 hover:bg-blue-700 hover:cursor-pointer' onClick={downloadProjectInfo}>Download Project Info</button>
+            </div>
             <ProjectInfo project={project} />
         </main>
       </div>
