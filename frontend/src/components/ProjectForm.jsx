@@ -28,6 +28,12 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         Array.isArray(services_pass) ? services_pass : []
     )
 
+    const [servicePasswords, setServicePasswords] = useState(
+        Array.isArray(services_pass) ? services_pass : []
+    )
+
+
+
     const [newServiceLinks, setNewServiceLinks] = useState([])
 
 
@@ -144,16 +150,29 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
 
         const handleServiceEmailChange = (e, index) => {
-        const value = e.target.value;
+            const value = e.target.value;
 
-        setServiceEmails(prev => {
-            const updated = [...prev];
-            updated[index] = {
-            ...(updated[index] || {}),
-            email: value
+            setServiceEmails(prev => {
+                const updated = [...prev];
+                updated[index] = {
+                ...(updated[index] || {}),
+                email: value
+                };
+                return updated;
+            });
             };
-            return updated;
-        });
+
+        const handleServicePasswordChange = (e, index) => {
+            const value = e.target.value;
+
+            setServicePasswords(prev => {
+                const updated = [...prev];
+                updated[index] = {
+                ...(updated[index] || {}),
+                password: value
+                };
+                return updated;
+            });
         };
 
 
@@ -210,7 +229,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         setServices(prev =>
             prev.map((service, i) =>
             i === index
-                ? { ...service, link: serviceLinks[index].link, email:serviceEmails[index].email }
+                ? { ...service, link: serviceLinks[index].link, email:serviceEmails[index].email, password:servicePasswords[index].password }
                 : service
             )
         )
@@ -373,6 +392,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 id={`link-${index}`} />
                                             </div>
 
+                                            {/* Service Email */}
                                             <label htmlFor="email">Service Email</label>
                                             <div className='flex flex-col mt-2 w-full'>
                                                 <input
@@ -383,6 +403,19 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                                 onChange={(e) => handleServiceEmailChange(e, index)}
                                                 className='border rounded p-2'
                                                 id={`email-${index}`} />
+                                            </div>
+
+                                            {/* Service Password */}
+                                            <label htmlFor="email">Service Password</label>
+                                            <div className='flex flex-col mt-2 w-full'>
+                                                <input
+                                                type="password"
+                                                name="password"
+                                                placeholder='Enter service password'
+                                                value={servicePasswords[index]?.password || ''}
+                                                onChange={(e) => handleServicePasswordChange(e, index)}
+                                                className='border rounded p-2'
+                                                id={`password-${index}`} />
                                             </div>
 
                                             <button
