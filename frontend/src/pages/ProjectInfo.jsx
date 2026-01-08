@@ -43,7 +43,7 @@ const ProjectInfo = () => {
 
 
             pdf.setFontSize(16)
-            pdf.text('Project Info', 20, 20)
+            pdf.text('Servant - Project Info', 20, 20)
 
 
             pdf.setFontSize(12)
