@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar'
 import { useParams } from 'react-router-dom'
 import ProjectInfo from '../components/ProjectInfo'
 import { jsPDF } from "jspdf"
+import autoTable from "jspdf-autotable"
 
 
 
@@ -22,12 +23,26 @@ const ProjectDescription = () => {
     const downloadProjectInfo = () => {
         const pdf = new jsPDF()
 
+        const rows = project.services.map((service) => [
+          service.name,
+          service.email,
+          service.password
+        ])
+
         pdf.setFontSize(16)
         pdf.text('Project Info', 20, 20)
 
         pdf.setFontSize(12)
         pdf.text(`Name: ${project.title}`, 20, 40)
         pdf.text(`Description: ${project.description}`, 20, 50)
+        pdf.text(`Team Members: ${project.members}`, 20, 60)
+
+        autoTable(pdf, {
+          startY: 70,
+          head: [["Name", "Email", "Password"]],
+          body: rows
+        })
+
 
         pdf.save("project-desc.pdf")
 
