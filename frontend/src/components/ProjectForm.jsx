@@ -419,7 +419,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                             </div>
 
                                             <button
-                                                className='bg-blue-500 px-4 text-white rounded hover:bg-blue-600 hover:cursor-pointer'
+                                                className='bg-blue-500 px-4 text-white rounded hover:bg-blue-600 hover:cursor-pointer w-full mt-3 h-8'
                                                 onClick={() => storeServiceLink(index)}
                                                 >
                                                 +
