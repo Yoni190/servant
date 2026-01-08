@@ -16,7 +16,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     const [servicesElement, setServicesElement] = useState('')
     const [selectedService, setSelectedService] = useState(0)
     const [serviceData, setServiceData] = useState(
-        Array.isArray(services_pass) ? service_pass : []
+        Array.isArray(services_pass) ? services_pass : []
     )
 
     const { t, i18n } = useTranslation();
