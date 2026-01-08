@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { useParams } from 'react-router-dom'
+import ProjectInfo from '../components/ProjectInfo'
+
 
 
 const ProjectDescription = () => {
@@ -24,10 +26,7 @@ const ProjectDescription = () => {
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
             <h1 className='text-2xl font-semibold dark:text-white'>Project Description</h1>
-
-            {/* Project Information */}
-            <h2>Project Title</h2>
-            <p>{project.title}</p>
+            <ProjectInfo project={project} />
         </main>
       </div>
     </div>
