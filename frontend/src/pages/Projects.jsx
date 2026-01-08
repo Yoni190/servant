@@ -19,9 +19,12 @@ const Projects = () => {
     useEffect(() => {
       const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
 
-      localProjects.map((project) => {
-        project.services = project.services.length
-      })
+      if(localProjects.length !== 0) {
+        localProjects.map((project) => {
+            project.services = project.services.length
+        })
+      }
+      
 
       setProjects(localProjects)
 
@@ -158,14 +161,14 @@ const Projects = () => {
                             <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
                                 <td className='p-3 dark:text-white'>{index + 1}</td>
                                 <td className='p-3 font-medium dark:text-white'>
-                                    <Link to={`/project/description/${project.id}`} className='hover:underline'>
-                                        {project.title}
+                                    <Link to={`/project/description/${project?.id}`} className='hover:underline'>
+                                        {project?.title}
                                     </Link>
                                 </td>
-                                <td className='p-3 dark:text-white'>{project.services}</td>
-                                <td className='p-3 dark:text-white'>{project.members}</td>
+                                <td className='p-3 dark:text-white'>{project?.services}</td>
+                                <td className='p-3 dark:text-white'>{project?.members}</td>
                                 <td className='p-3 space-x-3'>
-                                    <Link to={`/project/edit/${project.id}`}>
+                                    <Link to={`/project/edit/${project?.id}`}>
                                         <button className="text-blue-500 hover:underline hover:cursor-pointer">{t('edit')}</button>
                                     </Link>
                                     <button className="text-red-500 hover:underline hover:cursor-pointer" onClick={() => handleDelete(project.id)}>{t('delete')}</button>
