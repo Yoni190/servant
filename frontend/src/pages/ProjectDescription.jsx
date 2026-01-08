@@ -13,7 +13,7 @@ const ProjectDescription = () => {
     useEffect(() => {
       const localProject = JSON.parse(localStorage.getItem('projects')).find(project => project.id == Number(id))
 
-      console.log(localProject)
+      setProject(localProject)
     }, [])
     
 
@@ -24,6 +24,10 @@ const ProjectDescription = () => {
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
             <h1 className='text-2xl font-semibold dark:text-white'>Project Description</h1>
+
+            {/* Project Information */}
+            <h2>Project Title</h2>
+            <p>{project.title}</p>
         </main>
       </div>
     </div>
