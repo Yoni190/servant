@@ -29,6 +29,9 @@ const ProjectInfo = () => {
           title: t("warning"),
           text: t("downloadProjectText"),
           icon: "warning",
+          confirmButtonText: t("okButton"),
+          confirmButtonColor: "red",
+          cancelButtonText: t("cancelButton"),
 
           showCancelButton: true
         }).then((result) => {
