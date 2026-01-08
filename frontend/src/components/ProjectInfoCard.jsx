@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 
-const ProjectInfo = ({ project }) => {
+const ProjectInfoCard = ({ project }) => {
 
   const { t } = useTranslation()
 
@@ -81,4 +81,4 @@ const ProjectInfo = ({ project }) => {
   );
 };
 
-export default ProjectInfo;
+export default ProjectInfoCard;

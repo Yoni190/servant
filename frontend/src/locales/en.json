@@ -98,5 +98,6 @@
   "downloadProjectInfo": "Download Project Info",
   "downloadProjectText": "Are you sure you want to download the service data? This file contains sensitive information such as emails and passwords.",
   "serviceName": "Service Name",
-  "link": "Link"
+  "link": "Link",
+  "projectInfo": "Project Information"
 }

@@ -161,7 +161,7 @@ const Projects = () => {
                             <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
                                 <td className='p-3 dark:text-white'>{index + 1}</td>
                                 <td className='p-3 font-medium dark:text-white'>
-                                    <Link to={`/project/description/${project?.id}`} className='hover:underline'>
+                                    <Link to={`/project/info/${project?.id}`} className='hover:underline'>
                                         {project?.title}
                                     </Link>
                                 </td>

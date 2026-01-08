@@ -10,7 +10,8 @@ import Logs from './pages/Logs'
 import Settings from './pages/Settings'
 import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
-import ProjectDescription from './pages/ProjectDescription'
+import ProjectInfo from './pages/ProjectInfo'
+
 
 
 
@@ -37,7 +38,7 @@ const App = () => {
         <Route path="/project/edit/:id" element={<EditProject />} />
         <Route path="/logs" element={<Logs />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/project/description/:id" element={<ProjectDescription />} />
+        <Route path="/project/info/:id" element={<ProjectInfo />} />
       </Routes>
 
       <ToastContainer
