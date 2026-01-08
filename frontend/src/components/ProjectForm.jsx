@@ -100,11 +100,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         notify()
     }
 
-    const handleServicesChange = (e) => {
-        const value = e.target.value
-        const servicesArray = value.split(',').map(service => service.trim())
-        setServices(servicesArray)
-    }
+    
 
     const handleServicesAddition = () => {
 
@@ -176,53 +172,6 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         };
 
 
-    const storeServiceData = (index) => {
-        console.log("Saved")
-        
-        const serviceLink = serviceLinks[index]?.link || ''
-
-        
-        const storedLinks = JSON.parse(localStorage.getItem('serviceData') || '[]')
-
-        const projects = JSON.parse(localStorage.getItem('projects') || '[]')
-
-        projects[0].services[0].link = storedLinks[0].link
-
-        localStorage.setItem('projects', JSON.stringify(projects))
-
-        const projectIndex =  projects.length
-
-        if(storedLinks.find(item => item.projectIndex === projectIndex)) {
-            console.log('inside project if')
-            if(storedLinks.find(item => item.serviceIndex === index)) {
-            console.log("No")
-            const serviceIndex = storedLinks.findIndex(item => item.serviceIndex === index)
-
-            storedLinks[serviceIndex].link = serviceLink
-            } else {
-                storedLinks.push({
-                    projectIndex,
-                    serviceIndex: index,
-                    link: serviceLink
-                }
-            )
-            }
-        } else {
-                storedLinks.push({
-                    projectIndex,
-                    serviceIndex: index,
-                    link: serviceLink
-                }
-            )
-        }
-
-        
-        
-
-        localStorage.setItem('serviceData', JSON.stringify(storedLinks))
-        console.log(storedLinks)
-        
-    }
 
 
     const storeServiceLink = (index) => {
