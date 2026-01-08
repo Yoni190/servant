@@ -15,7 +15,7 @@ const ProjectInfo = () => {
     const { id } = useParams()
     const [project, setProject] = useState()
 
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
 
 
     useEffect(() => {
@@ -41,8 +41,10 @@ const ProjectInfo = () => {
               service.password
             ])
 
+
             pdf.setFontSize(16)
             pdf.text('Project Info', 20, 20)
+
 
             pdf.setFontSize(12)
             pdf.text(`Name: ${project.title}`, 20, 40)
