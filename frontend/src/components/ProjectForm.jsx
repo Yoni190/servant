@@ -16,7 +16,6 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
 
     const [servicesElement, setServicesElement] = useState('')
-    const [servicesArray, setServicesArray] = useState([])
 
     const [selectedService, setSelectedService] = useState(0)
 
@@ -24,21 +23,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         Array.isArray(services_pass) ? service_pass : []
     )
     
-    const [serviceLinks, setServiceLinks] = useState(
-    Array.isArray(services_pass) ? services_pass : []
-    )
 
-    const [serviceEmails, setServiceEmails] = useState(
-        Array.isArray(services_pass) ? services_pass : []
-    )
-
-    const [servicePasswords, setServicePasswords] = useState(
-        Array.isArray(services_pass) ? services_pass : []
-    )
-
-
-
-    const [newServiceLinks, setNewServiceLinks] = useState([])
 
 
     const { t, i18n } = useTranslation();
@@ -46,7 +31,6 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
     
 
-    console.log(service_urls)
 
     const notify = () => toast.success(t("projectDataSaved"), {
         position: i18n.language === 'ar' ? "top-left" : "top-right",
