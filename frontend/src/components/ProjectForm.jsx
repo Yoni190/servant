@@ -24,6 +24,8 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     Array.isArray(services_pass) ? services_pass : []
     )
 
+    const [serviceEmails, setServiceEmails] = useState([])
+
     const [newServiceLinks, setNewServiceLinks] = useState([])
 
 
@@ -139,6 +141,20 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         };
 
 
+        const handleServiceEmailChange = (e, index) => {
+        const value = e.target.value;
+
+        setServiceEmails(prev => {
+            const updated = [...prev];
+            updated[index] = {
+            ...(updated[index] || {}),
+            email: value
+            };
+            return updated;
+        });
+        };
+
+
     const storeServiceData = (index) => {
         console.log("Saved")
         
@@ -192,10 +208,11 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
         setServices(prev =>
             prev.map((service, i) =>
             i === index
-                ? { ...service, link: serviceLinks[index].link }
+                ? { ...service, link: serviceLinks[index].link, email:serviceEmails[index].email }
                 : service
             )
         )
+
         linkAdded()
         console.log(services)
         }
@@ -343,24 +360,35 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                     <div key={index}>
                                             {/* Service URL */}
                                             <label htmlFor="link">Service URL</label>
-                                            <div className='flex gap-2'>
-                                                <div className='flex flex-col mt-2 w-full'>
-                                                    <input
-                                                    type="text"
-                                                    name="link"
-                                                    placeholder='Enter service url'
-                                                    value={serviceLinks[index]?.link || ''}
-                                                    onChange={(e) => handleServiceLinkChange(e, index)}
-                                                    className='border rounded p-2'
-                                                    id={`link-${index}`} />
-                                                </div>
-                                                <button
-                                                    className='bg-blue-500 px-4 text-white rounded hover:bg-blue-600 hover:cursor-pointer'
-                                                    onClick={() => storeServiceLink(index)}
-                                                    >
-                                                    +
-                                                </button>
+                                            <div className='flex flex-col mt-2 w-full'>
+                                                <input
+                                                type="text"
+                                                name="link"
+                                                placeholder='Enter service url'
+                                                value={serviceLinks[index]?.link || ''}
+                                                onChange={(e) => handleServiceLinkChange(e, index)}
+                                                className='border rounded p-2'
+                                                id={`link-${index}`} />
                                             </div>
+
+                                            <label htmlFor="email">Service Email</label>
+                                            <div className='flex flex-col mt-2 w-full'>
+                                                <input
+                                                type="email"
+                                                name="email"
+                                                placeholder='Enter service email'
+                                                value={serviceEmails[index]?.email || ''}
+                                                onChange={(e) => handleServiceEmailChange(e, index)}
+                                                className='border rounded p-2'
+                                                id={`email-${index}`} />
+                                            </div>
+
+                                            <button
+                                                className='bg-blue-500 px-4 text-white rounded hover:bg-blue-600 hover:cursor-pointer'
+                                                onClick={() => storeServiceLink(index)}
+                                                >
+                                                +
+                                            </button>
                                     </div>
                                 )
                                 )
