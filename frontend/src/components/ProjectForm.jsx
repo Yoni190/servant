@@ -279,12 +279,12 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                     index === selectedService && (
                                     <div key={index}>
                                             {/* Service URL */}
-                                            <label htmlFor="link" className='dark:text-white'>Service URL</label>
+                                            <label htmlFor="link" className='dark:text-white'>{t('serviceLink')}</label>
                                             <div className='flex flex-col mt-2 w-full'>
                                                 <input
                                                 type="text"
                                                 name="link"
-                                                placeholder='Enter service url'
+                                                placeholder={t('enterServiceUrl')}
                                                 value={serviceData[index]?.link || ''}
                                                 onChange={(e) => handleServiceChange(e, "link", index)}
                                                 className='border rounded p-2 dark:text-white'
@@ -292,12 +292,12 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                             </div>
 
                                             {/* Service Email */}
-                                            <label htmlFor="email" className='dark:text-white'>Service Email</label>
+                                            <label htmlFor="email" className='dark:text-white'>{t('serviceEmail')}</label>
                                             <div className='flex flex-col mt-2 w-full'>
                                                 <input
                                                 type="email"
                                                 name="email"
-                                                placeholder='Enter service email'
+                                                placeholder={t('enterServiceEmail')}
                                                 value={serviceData[index]?.email || ''}
                                                 onChange={(e) => handleServiceChange(e, "email", index)}
                                                 className='border rounded p-2 dark:text-white'
@@ -305,12 +305,12 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
                                             </div>
 
                                             {/* Service Password */}
-                                            <label htmlFor="email" className='dark:text-white'>Service Password</label>
+                                            <label htmlFor="email" className='dark:text-white'>{t('servicePassword')}</label>
                                             <div className='flex flex-col mt-2 w-full'>
                                                 <input
                                                 type="password"
                                                 name="password"
-                                                placeholder='Enter service password'
+                                                placeholder={t('enterServicePassword')}
                                                 value={serviceData[index]?.password || ''}
                                                 onChange={(e) => handleServiceChange(e, "password", index)}
                                                 className='border rounded p-2 dark:text-white'

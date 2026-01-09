@@ -105,6 +105,12 @@
   "Passcode (12345678)": "رمز المرور (12345678)",
   "continue": "متابعة",
   "passcodeRequired": "رمز المرور مطلوب للمتابعة.",
-  "incorrectPassword": "رمز المرور غير صحيح. يرجى المحاولة مرة أخرى."
+  "incorrectPassword": "رمز المرور غير صحيح. يرجى المحاولة مرة أخرى.",
+  "serviceLink": "رابط الخدمة",
+  "enterServiceUrl": "أدخل رابط الخدمة",
+  "serviceEmail": "البريد الإلكتروني للخدمة",
+  "enterServiceEmail": "أدخل البريد الإلكتروني للخدمة",
+  "servicePassword": "كلمة مرور الخدمة",
+  "enterServicePassword": "أدخل كلمة مرور الخدمة"
 
 }

@@ -105,5 +105,11 @@
   "Passcode (12345678)": "Passcode (12345678)",
   "continue": "Continue",
   "passcodeRequired": "Passcode is required to continue.",
-  "incorrectPassword": "Incorrect passcode. Please try again."
+  "incorrectPassword": "Incorrect passcode. Please try again.",
+  "serviceLink": "Service URL",
+  "enterServiceUrl": "Enter service URL",
+  "serviceEmail": "Service Email",
+  "enterServiceEmail": "Enter service email",
+  "servicePassword": "Service Password",
+  "enterServicePassword": "Enter service password"
 }
