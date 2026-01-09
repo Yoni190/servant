@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { useTranslation } from 'react-i18next'
 import usePageTitle from '../config/usePageTitle'
+
 
 
 const Projects = () => {
@@ -14,6 +15,8 @@ const Projects = () => {
     const { t, i18n } = useTranslation();
 
     const [projects, setProjects] = useState([])
+
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -96,6 +99,36 @@ const Projects = () => {
             }
         })
     }
+
+    const handleProjectNavigation = async (id) => {
+        const result = await Swal.fire({
+            title: t("enterPasscode"),
+            text: t("sensitiveData"),
+            input: "password",
+            inputPlaceholder: t("Passcode (12345678)"),
+            showCancelButton: true,
+            confirmButtonText: t("continue"),
+            cancelButtonText: t("cancelButton"),
+            preConfirm: (value) => {
+                if(!value) {
+                    Swal.showValidationMessage(t("passcodeRequired"))
+                }
+                return value
+            }
+        })
+
+        if(!result.isConfirmed) return
+
+        if (result.value !== "12345678") {
+            Swal.fire({
+                icon: "error",
+                text: t("incorrectPassword")
+            })
+            return
+        }
+
+        navigate(`/project/info/${id}`)
+    }
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -161,9 +194,12 @@ const Projects = () => {
                             <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
                                 <td className='p-3 dark:text-white'>{index + 1}</td>
                                 <td className='p-3 font-medium dark:text-white'>
-                                    <Link to={`/project/info/${project?.id}`} className='hover:underline'>
-                                        {project?.title}
-                                    </Link>
+                                    <span
+                                    className="cursor-pointer hover:underline"
+                                    onClick={() => handleProjectNavigation(project?.id)}
+                                    >
+                                    {project?.title}
+                                    </span>
                                 </td>
                                 <td className='p-3 dark:text-white'>{project?.services}</td>
                                 <td className='p-3 dark:text-white'>{project?.members}</td>
