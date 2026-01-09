@@ -99,5 +99,11 @@
   "downloadProjectText": "Are you sure you want to download the service data? This file contains sensitive information such as emails and passwords.",
   "serviceName": "Service Name",
   "link": "Link",
-  "projectInfo": "Project Information"
+  "projectInfo": "Project Information",
+  "enterPasscode": "Enter Passcode",
+  "sensitiveData": "This project contains sensitive data, including service credentials.",
+  "Passcode (12345678)": "Passcode (12345678)",
+  "continue": "Continue",
+  "passcodeRequired": "Passcode is required to continue.",
+  "incorrectPassword": "Incorrect passcode. Please try again."
 }
