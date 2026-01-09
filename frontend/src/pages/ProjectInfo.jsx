@@ -7,10 +7,14 @@ import autoTable from "jspdf-autotable"
 import Swal from 'sweetalert2'
 import { useTranslation } from 'react-i18next'
 import ProjectInfoCard from '../components/ProjectInfoCard'
+import usePageTitle from '../config/usePageTitle'
+
 
 
 
 const ProjectInfo = () => {
+
+    usePageTitle('Project Info | Servant')
 
     const { id } = useParams()
     const [project, setProject] = useState()
