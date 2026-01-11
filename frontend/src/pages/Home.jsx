@@ -94,7 +94,7 @@ const Home = () => {
           </div>
 
           {/* Charts */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Services Per Project */}
             <div className="bg-white p-4 rounded shadow h-[300px] dark:bg-gray-800">
               <h2 className="font-semibold mb-2 dark:text-white">{t('servicesPerProject')}</h2>
