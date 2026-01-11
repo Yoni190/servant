@@ -9,7 +9,7 @@ const Sidebar = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-gray-100 w-64 p-4 dark:bg-gray-800">
+    <div className="bg-gray-100 hidden md:w-64 p-4 dark:bg-gray-800">
       <ul className='flex flex-col gap-5'>
         <li className="mb-2">
           <Link to="/home" className="text-gray-700 flex gap-2 dark:text-gray-300">
