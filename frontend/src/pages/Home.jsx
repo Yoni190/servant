@@ -87,7 +87,7 @@ const Home = () => {
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
 
           {/* Stat Cards */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid md:grid-cols-3 gap-3">
             <StatCard title="projects" value={projects.length} />
             <StatCard title="services" value={totalServices} />
             <StatCard title="teamMembers" value={totalMembers} />
