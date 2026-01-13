@@ -18,10 +18,10 @@ const Login = () => {
         <div className={`absolute top-4 ${i18n.language === 'en' ? 'right-4' : 'left-4'} flex gap-2`}>
           <button
             onClick={() => i18n.changeLanguage('en')}
-            className={`px-3 py-1 rounded text-sm ${
+            className={`px-3 py-1 rounded text-sm hover:cursor-pointer ${
               i18n.language === 'en'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white border text-gray-700'
+                ? 'bg-blue-600 text-white hover:bg-blue-800'
+                : 'bg-white border text-gray-700 hover:bg-gray-200'
             }`}
           >
             EN
@@ -29,10 +29,10 @@ const Login = () => {
 
           <button
             onClick={() => i18n.changeLanguage('ar')}
-            className={`px-3 py-1 rounded text-sm ${
+            className={`px-3 py-1 rounded text-sm hover:cursor-pointer ${
               i18n.language === 'ar'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white border text-gray-700'
+                ? 'bg-blue-600 text-white hover:bg-blue-800'
+                : 'bg-white border text-gray-700 hover:bg-gray-200'
             }`}
           >
             AR
