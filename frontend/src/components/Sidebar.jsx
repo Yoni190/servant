@@ -23,12 +23,14 @@ const Sidebar = () => {
             {t('projects')}
           </Link>
         </li>
-        <li className="mb-2">
+
+        {/* <li className="mb-2">
           <Link to="/logs" className="text-gray-700 flex gap-2 dark:text-gray-300">
             <Logs />
             {t('logs')}
           </Link>
-        </li>
+        </li> */}
+        
         <li className="mb-2">
           <Link to="/settings" className="text-gray-700 flex gap-2 dark:text-gray-300">
             <Settings />
