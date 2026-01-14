@@ -20,18 +20,18 @@ const Projects = () => {
 
 
     useEffect(() => {
-      const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
+    const localProjects = JSON.parse(localStorage.getItem('projects') || '[]')
 
-      if(localProjects.length !== 0) {
-        localProjects.map((project) => {
-            project.services = project.services.length
-        })
-      }
-      
+    const normalizedProjects = localProjects.map(project => ({
+        ...project,
+        servicesCount: Array.isArray(project.services)
+        ? project.services.length
+        : 0
+    }))
 
-      setProjects(localProjects)
-
+    setProjects(normalizedProjects)
     }, [])
+
     
 
     const [filters, setFilters] = useState({
@@ -69,36 +69,37 @@ const Projects = () => {
     
 
     const handleDelete = (projectId) => {
+  Swal.fire({
+    title: t("warning"),
+    text: t("deleteProjectText"),
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    confirmButtonText: t("deleteConfirmButton"),
+    cancelButtonText: t("cancelButton")
+  }).then((result) => {
+    if (!result.isConfirmed) return
 
-        Swal.fire({
-            title: t("warning"),
-            text: t("deleteProjectText"),
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            confirmButtonText: t("deleteConfirmButton"),
-            cancelButtonText: t("cancelButton")
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Proceed with deletion logic here
-                console.log(`Project with ID ${projectId} deleted.`);
+    const localProjects = JSON.parse(
+      localStorage.getItem('projects') || '[]'
+    )
 
-                const localProjects = JSON.parse(localStorage.getItem('projects') || [])
+    const updatedProjects = localProjects.filter(
+      project => String(project.id) !== String(projectId)
+    )
 
-                const updatedProjects = localProjects.filter(project => project.id !== projectId)
+    localStorage.setItem('projects', JSON.stringify(updatedProjects))
+    setProjects(updatedProjects)
 
-                localStorage.setItem('projects', JSON.stringify(updatedProjects))
+    Swal.fire({
+      title: t("deleted"),
+      text: t("projectDeleted"),
+      confirmButtonText: t("okButton"),
+      icon: "success"
+    })
+  })
+}
 
-                Swal.fire({
-                    title: t("deleted"),
-                    text: t("projectDeleted"),
-                    confirmButtonText: t('okButton'),
-                    icon: "success"
-                });
-                setProjects(updatedProjects)
-            }
-        })
-    }
 
     const handleProjectNavigation = async (id) => {
         const result = await Swal.fire({
@@ -202,7 +203,7 @@ const Projects = () => {
                                         {project?.title}
                                         </span>
                                     </td>
-                                    <td className='p-3 dark:text-white'>{project?.services}</td>
+                                    <td className='p-3 dark:text-white'>{project?.servicesCount}</td>
                                     <td className='p-3 dark:text-white'>{project?.members}</td>
                                     <td className='p-3 space-x-3'>
                                         <Link to={`/project/edit/${project?.id}`}>
@@ -242,7 +243,7 @@ const Projects = () => {
                     </div>
 
                     <div className="text-sm text-gray-600 dark:text-gray-300">
-                        <p>{t('services')}: <strong>{project.services}</strong></p>
+                        <p>{t('services')}: <strong>{project.servicesCount}</strong></p>
                         <p>{t('teamMembers')}: <strong>{project.members}</strong></p>
                     </div>
 
