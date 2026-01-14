@@ -7,28 +7,28 @@ const ProjectInfoCard = ({ project }) => {
   const { t } = useTranslation()
 
   return (
-    <div className="max-w-5xl p-6 space-y-8 border rounded-xl bg-white shadow-lg">
+    <div className="max-w-5xl p-6 space-y-8 border rounded-xl bg-white dark:bg-gray-900 shadow-lg">
       {/* Title */}
       <section>
-        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+        <h2 className="text-xl font-semibold text-gray-800 mb-1 dark:text-white">
           {t('projectTitle')}
         </h2>
-        <p className="text-gray-600">{project?.title}</p>
+        <p className="text-gray-600 dark:text-gray-300">{project?.title}</p>
       </section>
 
       {/* Description */}
       <section>
-        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-1 dark:text-white">
           {t('projectDescription')}
         </h2>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           {project?.description}
         </p>
       </section>
 
       {/* Services */}
       <section>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
           {t('projectServices')}
         </h2>
 
@@ -138,10 +138,10 @@ const ProjectInfoCard = ({ project }) => {
 
       {/* Members */}
       <section>
-        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-1">
           {t('projectMembers')}
         </h2>
-        <p className="text-gray-600">{project?.members}</p>
+        <p className="text-gray-600 dark:text-gray-300">{project?.members}</p>
       </section>
     </div>
   );
