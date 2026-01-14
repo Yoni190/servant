@@ -82,6 +82,15 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
     // Adding services to the project
     const handleServicesAddition = () => {
+        const newErrors = []
+
+        if(!servicesElement) {
+            newErrors.push({ field: 'services', message: t('servicesEmpty') })
+        }
+        if (newErrors.length > 0) {
+            setErrors(newErrors)
+            return
+        }
 
         const services = {id: Date.now(), name: servicesElement}
         console.log(services)
