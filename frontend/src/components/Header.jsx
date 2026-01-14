@@ -1,23 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { APP_NAME } from '../config/appConfig'
 import { useTranslation } from 'react-i18next'
 import { FolderKanban, Home, LogOut, Logs, Menu, Settings } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import servantLogo from '../assets/servant_logo.png';
+import servantLogoDarkMode from '../assets/servant_logo_white.svg'
 
 
 
 
-const Header = () => {
+const Header = ( {theme='light'} ) => {
 
   const { t } = useTranslation();
   const [menuShown, setMenuShown] = useState(false)
+  
+  const storedTheme = localStorage.getItem('theme') || theme;
+ 
 
   return (
     <div>
         <header className={`bg-white ${menuShown ? '' : 'shadow'} flex items-center p-6 dark:bg-gray-900 justify-between`}>
           <Link to={'/home'} className='flex gap-5 items-center'>
-            <img src={servantLogo} alt="App logo" width="50" />
+            <img src={storedTheme === 'dark' ? servantLogoDarkMode : servantLogo} alt="App logo" width="50" />
             <h1 className="text-2xl font-semibold dark:text-white">{t('appName')}</h1>
           </Link>
             <Menu

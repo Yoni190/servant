@@ -15,6 +15,7 @@ const Settings = () => {
     usePageTitle('Settings | Servant')
 
     const { t, i18n } = useTranslation();
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
     const navigate = useNavigate()
 
@@ -34,19 +35,15 @@ const Settings = () => {
     }
 
     const handleDarkModeToggle = (mode) => {
-        if (mode === 'dark') {
-            localStorage.theme = "dark";
-        } else {
-            localStorage.theme = "light";
-        }
+        const newTheme = mode === 'dark' ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
 
-        document.documentElement.classList.toggle(
-        "dark",
-        localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
+        document.documentElement.classList.toggle("dark", newTheme === 'dark');
 
+        // <-- trigger re-render in Header
+        setTheme(newTheme);
     }
+
 
     const handleDelete = () => {
         Swal.fire({
@@ -82,7 +79,7 @@ const Settings = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header theme={theme}/>
       <div className="flex flex-1">
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
