@@ -19,11 +19,11 @@ const Header = () => {
             <h1 className="text-2xl font-semibold dark:text-white">{t('appName')}</h1>
           </Link>
             <Menu
-              className='md:hidden'
+              className='md:hidden dark:text-white'
               onClick={() => setMenuShown(!menuShown)}
               />
         </header>
-        <div className={`flex justify-center ${menuShown ? 'block' : 'hidden'} shadow p-4 bg-white`}>
+        <div className={`flex justify-center ${menuShown ? 'block' : 'hidden'} shadow p-4 bg-white dark:bg-gray-900`}>
             <ul className='flex flex-col gap-5'>
               <li className="mb-2">
                 <Link to="/home" className="text-gray-700 flex gap-2 dark:text-gray-300">
