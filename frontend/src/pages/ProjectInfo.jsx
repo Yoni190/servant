@@ -65,7 +65,7 @@ const ProjectInfo = () => {
             })
 
 
-            pdf.save("project-desc.pdf")
+            pdf.save(`${project.title.replace(/\s+/g, '_')}_info.pdf`);
           }
         }) 
         
