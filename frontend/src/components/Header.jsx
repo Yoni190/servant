@@ -11,7 +11,7 @@ import servantLogoDarkMode from '../assets/servant_logo_white.svg'
 
 const Header = ( {theme='light'} ) => {
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [menuShown, setMenuShown] = useState(false)
   
   const storedTheme = localStorage.getItem('theme') || theme;
@@ -21,7 +21,7 @@ const Header = ( {theme='light'} ) => {
     <div>
         <header className={`bg-white ${menuShown ? '' : 'shadow'} flex items-center p-6 dark:bg-gray-900 justify-between`}>
           <Link to={'/home'} className='flex gap-5 items-center'>
-            <img src={storedTheme === 'dark' ? servantLogoDarkMode : servantLogo} alt="App logo" width="50" />
+            <img src={storedTheme === 'dark' ? servantLogoDarkMode : servantLogo} alt="App logo" width="50" className={`${i18n.language == 'ar' ? 'scale-x-[-1]' : 'scale-x-[1]'}`} />
             <h1 className="text-2xl font-semibold dark:text-white">{t('appName')}</h1>
           </Link>
             <Menu
