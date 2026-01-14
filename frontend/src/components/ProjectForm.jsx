@@ -139,7 +139,7 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
 
 
   return (
-        <div className="flex gap-5">
+        <div className="flex flex-col md:flex-row gap-5">
             <form className='dark:bg-gray-800 bg-white rounded-2xl shadow-lg p-8 space-y-5 w-full max-w-lg'>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2 dark:text-white" htmlFor="title">
