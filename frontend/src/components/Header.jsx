@@ -15,7 +15,8 @@ const Header = () => {
   return (
     <div>
         <header className={`bg-white ${menuShown ? '' : 'shadow'} flex items-center p-6 dark:bg-gray-900 justify-between`}>
-          <Link to={'/home'}>
+          <Link to={'/home'} className='flex gap-5 items-center'>
+            <img src="/src/assets/servant_logo.png" alt="App logo" width="50" />
             <h1 className="text-2xl font-semibold dark:text-white">{t('appName')}</h1>
           </Link>
             <Menu
