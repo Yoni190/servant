@@ -63,28 +63,71 @@ const Logs = () => {
                         </button>
                     </form>
                 </div>
-                <table className='w-full bg-white rounded shadow overflow-hidden dark:bg-gray-800'>
-                    <thead className={`bg-gray-100 text-left dark:bg-gray-800 ${i18n.language === "ar" ? "text-right" : "text-left"}`}>
-                        <tr>
-                            <th className='p-3 dark:text-white'>{t('id')}</th>
-                            <th className='p-3 dark:text-white'>{t('action')}</th>
-                            <th className='p-3 dark:text-white'>{t('performedBy')}</th>
-                            <th className='p-3 dark:text-white'>{t('project')}</th>
-                            <th className='p-3 dark:text-white'>{t('time')}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {logs.map((log) => (
-                            <tr key={log.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
-                                <td className='p-3 dark:text-white'>{log.id}</td>
-                                <td className='p-3 font-medium dark:text-white'>{log.action}</td>
-                                <td className='p-3 dark:text-white'>{log.performed}</td>
-                                <td className='p-3 dark:text-white'>{log.project}</td>
-                                <td className='p-3 dark:text-white'>{log.time}</td>
+                {/* Desktop Table */}
+                <div className="hidden md:block overflow-x-auto">
+                    <table className='w-full bg-white rounded shadow overflow-hidden dark:bg-gray-800'>
+                        <thead className={`bg-gray-100 text-left dark:bg-gray-800 ${i18n.language === "ar" ? "text-right" : "text-left"}`}>
+                            <tr>
+                                <th className='p-3 dark:text-white'>{t('id')}</th>
+                                <th className='p-3 dark:text-white'>{t('action')}</th>
+                                <th className='p-3 dark:text-white'>{t('performedBy')}</th>
+                                <th className='p-3 dark:text-white'>{t('project')}</th>
+                                <th className='p-3 dark:text-white'>{t('time')}</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {logs.map((log) => (
+                                <tr key={log.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
+                                    <td className='p-3 dark:text-white'>{log.id}</td>
+                                    <td className='p-3 font-medium dark:text-white'>{log.action}</td>
+                                    <td className='p-3 dark:text-white'>{log.performed}</td>
+                                    <td className='p-3 dark:text-white'>{log.project}</td>
+                                    <td className='p-3 dark:text-white'>{log.time}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                {/* Mobile Cards */}
+                <div className="md:hidden space-y-4">
+                {logs.map((log) => (
+                    <div
+                    key={log.id}
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 space-y-2 border dark:border-gray-700"
+                    >
+                    {/* Header */}
+                    <div className="flex justify-between items-center">
+                        <h3 className="font-semibold dark:text-white">
+                        {log.action}
+                        </h3>
+                        <span className="text-xs text-gray-500">
+                        #{log.id}
+                        </span>
+                    </div>
+
+                    {/* Details */}
+                    <div className="text-sm space-y-1">
+                        <p className="text-gray-600 dark:text-gray-300">
+                        <span className="font-medium">{t('performedBy')}:</span> {log.performed}
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-300">
+                        <span className="font-medium">{t('project')}:</span> {log.project}
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-300">
+                        <span className="font-medium">{t('time')}:</span> {log.time}
+                        </p>
+                    </div>
+                    </div>
+                ))}
+
+                {logs.length === 0 && (
+                    <p className="text-center text-gray-500 dark:text-gray-300">
+                    {t('noLogsFound')}
+                    </p>
+                )}
+                </div>
+
             </div>
         </main>
       </div>
