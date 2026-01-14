@@ -106,18 +106,9 @@ const ProjectForm = ({ title_pass, description_pass, services_pass, members_pass
     // Deleting services from the project
     const handleServiceDeletion = (index) => {
 
-        const serviceData = JSON.parse(localStorage.getItem('serviceData'))
-
-        const serviceIndex = serviceData.findIndex(item => item.serviceIndex === index)
-
-        serviceData.splice(serviceIndex, 1)
-
-        localStorage.setItem('serviceData', JSON.stringify(serviceData))
-        
         setServices(prev =>
             prev.filter((_, i) => i !== index)
         )
-        setServiceLinks(prev => prev.filter((_, i) => i !== index))
     }
 
     // Handle change of service data(link, email, password)
