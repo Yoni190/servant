@@ -115,7 +115,8 @@ const Home = () => {
                 />
             </div>
             {/* Access Levels */}
-            <div className="bg-white p-4 rounded shadow h-[300px] dark:bg-gray-800">
+
+            {/* <div className="bg-white p-4 rounded shadow h-[300px] dark:bg-gray-800">
               <h2 className="font-semibold mb-2 dark:text-white">{t('accessLevelDistribution')}</h2>
               <ResponsivePie
                 data={accessLevels}
@@ -144,7 +145,7 @@ const Home = () => {
                 }}
                 colors={isDark ? ['#22D3EE', '#F472B6', '#FACC15'] : ['#3b82f6', '#f87171', '#fbbf24']}
               />
-            </div>
+            </div> */}
           </div>
 
           {/* Recent Logs */}
