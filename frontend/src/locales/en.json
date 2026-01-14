@@ -111,5 +111,6 @@
   "serviceEmail": "Service Email",
   "enterServiceEmail": "Enter service email",
   "servicePassword": "Service Password",
-  "enterServicePassword": "Enter service password"
+  "enterServicePassword": "Enter service password",
+  "servicesEmpty": "Service name cannot be empty"
 }

@@ -111,6 +111,7 @@
   "serviceEmail": "البريد الإلكتروني للخدمة",
   "enterServiceEmail": "أدخل البريد الإلكتروني للخدمة",
   "servicePassword": "كلمة مرور الخدمة",
-  "enterServicePassword": "أدخل كلمة مرور الخدمة"
+  "enterServicePassword": "أدخل كلمة مرور الخدمة",
+  "servicesEmpty": "اسم الخدمة لا يمكن أن يكون فارغًا"
 
 }
