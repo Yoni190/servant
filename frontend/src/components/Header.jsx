@@ -15,7 +15,9 @@ const Header = () => {
   return (
     <div>
         <header className={`bg-white ${menuShown ? '' : 'shadow'} flex items-center p-6 dark:bg-gray-900 justify-between`}>
+          <Link to={'/home'}>
             <h1 className="text-2xl font-semibold dark:text-white">{t('appName')}</h1>
+          </Link>
             <Menu
               className='md:hidden'
               onClick={() => setMenuShown(!menuShown)}
