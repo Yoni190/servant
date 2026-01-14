@@ -69,36 +69,36 @@ const Projects = () => {
     
 
     const handleDelete = (projectId) => {
-  Swal.fire({
-    title: t("warning"),
-    text: t("deleteProjectText"),
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#d33",
-    confirmButtonText: t("deleteConfirmButton"),
-    cancelButtonText: t("cancelButton")
-  }).then((result) => {
-    if (!result.isConfirmed) return
+        Swal.fire({
+            title: t("warning"),
+            text: t("deleteProjectText"),
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            confirmButtonText: t("deleteConfirmButton"),
+            cancelButtonText: t("cancelButton")
+        }).then((result) => {
+            if (!result.isConfirmed) return
 
-    const localProjects = JSON.parse(
-      localStorage.getItem('projects') || '[]'
-    )
+            const localProjects = JSON.parse(
+            localStorage.getItem('projects') || '[]'
+            )
 
-    const updatedProjects = localProjects.filter(
-      project => String(project.id) !== String(projectId)
-    )
+            const updatedProjects = localProjects.filter(
+            project => String(project.id) !== String(projectId)
+            )
 
-    localStorage.setItem('projects', JSON.stringify(updatedProjects))
-    setProjects(updatedProjects)
+            localStorage.setItem('projects', JSON.stringify(updatedProjects))
+            setProjects(updatedProjects)
 
-    Swal.fire({
-      title: t("deleted"),
-      text: t("projectDeleted"),
-      confirmButtonText: t("okButton"),
-      icon: "success"
-    })
-  })
-}
+            Swal.fire({
+            title: t("deleted"),
+            text: t("projectDeleted"),
+            confirmButtonText: t("okButton"),
+            icon: "success"
+            })
+        })
+        }
 
 
     const handleProjectNavigation = async (id) => {
