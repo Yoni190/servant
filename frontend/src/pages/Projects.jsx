@@ -223,6 +223,49 @@ const Projects = () => {
                         </tbody>
                     </table>
                 </div>
+
+                {/* Mobile Cards */}
+                <div className="space-y-4 md:hidden">
+                {filteredProjects.map((project, index) => (
+                    <div
+                    key={project.id}
+                    className="bg-white dark:bg-gray-800 rounded shadow p-4 space-y-2"
+                    >
+                    <div className="flex justify-between items-center">
+                        <h3
+                        className="font-semibold text-lg dark:text-white cursor-pointer"
+                        onClick={() => handleProjectNavigation(project.id)}
+                        >
+                        {project.title}
+                        </h3>
+                        <span className="text-sm text-gray-500">#{index + 1}</span>
+                    </div>
+
+                    <div className="text-sm text-gray-600 dark:text-gray-300">
+                        <p>{t('services')}: <strong>{project.services}</strong></p>
+                        <p>{t('teamMembers')}: <strong>{project.members}</strong></p>
+                    </div>
+
+                    <div className="flex gap-4 pt-2">
+                        <Link to={`/project/edit/${project.id}`}>
+                        <button className="text-blue-500 text-sm">{t('edit')}</button>
+                        </Link>
+                        <button
+                        className="text-red-500 text-sm"
+                        onClick={() => handleDelete(project.id)}
+                        >
+                        {t('delete')}
+                        </button>
+                    </div>
+                    </div>
+                ))}
+
+                {filteredProjects.length === 0 && (
+                    <p className="text-center text-gray-500 dark:text-gray-300">
+                    {t('noProjectsFound')}
+                    </p>
+                )}
+                </div>
             </div>
         </main>
       </div>
