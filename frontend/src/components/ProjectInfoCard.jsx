@@ -32,7 +32,7 @@ const ProjectInfoCard = ({ project }) => {
           {t('projectServices')}
         </h2>
 
-        <div className="overflow-x-auto rounded-lg border border-gray-200">
+        <div className="hidden md:blockoverflow-x-auto rounded-lg border border-gray-200">
           <table className="w-full text-sm text-left">
             <thead className="bg-gray-100 text-gray-700">
               <tr>
