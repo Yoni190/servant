@@ -179,48 +179,50 @@ const Projects = () => {
                 </div>
 
                 {/* Projects Table */}
-                <table className='w-full bg-white rounded shadow overflow-hidden dark:bg-gray-800'>
-                    <thead className={`bg-gray-100 text-left dark:bg-gray-800 ${i18n.language === "ar" ? "text-right" : "text-left"}`}>
-                        <tr>
-                            <th className='p-3 dark:text-white'>{t('id')}</th>
-                            <th className='p-3 dark:text-white'>{t('title')}</th>
-                            <th className='p-3 dark:text-white'>{t('services')}</th>
-                            <th className='p-3 dark:text-white'>{t('teamMembers')}</th>
-                            <th className='p-3 dark:text-white'>{t('actions')}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredProjects.map((project, index) => (
-                            <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
-                                <td className='p-3 dark:text-white'>{index + 1}</td>
-                                <td className='p-3 font-medium dark:text-white'>
-                                    <span
-                                    className="cursor-pointer hover:underline"
-                                    onClick={() => handleProjectNavigation(project?.id)}
-                                    >
-                                    {project?.title}
-                                    </span>
-                                </td>
-                                <td className='p-3 dark:text-white'>{project?.services}</td>
-                                <td className='p-3 dark:text-white'>{project?.members}</td>
-                                <td className='p-3 space-x-3'>
-                                    <Link to={`/project/edit/${project?.id}`}>
-                                        <button className="text-blue-500 hover:underline hover:cursor-pointer">{t('edit')}</button>
-                                    </Link>
-                                    <button className="text-red-500 hover:underline hover:cursor-pointer" onClick={() => handleDelete(project.id)}>{t('delete')}</button>
-                                </td>
-                            </tr>
-                        ))}
-
-                        {filteredProjects.length === 0 && (
+                <div className="hidden md:block overflow-x-auto">
+                    <table className='w-full bg-white rounded shadow overflow-hidden dark:bg-gray-800'>
+                        <thead className={`bg-gray-100 text-left dark:bg-gray-800 ${i18n.language === "ar" ? "text-right" : "text-left"}`}>
                             <tr>
-                                <td colSpan={5} className='text-center p-4 text-gray-500 dark:text-gray-200'>
-                                    {t('noProjectsFound')}
-                                </td>
+                                <th className='p-3 dark:text-white'>{t('id')}</th>
+                                <th className='p-3 dark:text-white'>{t('title')}</th>
+                                <th className='p-3 dark:text-white'>{t('services')}</th>
+                                <th className='p-3 dark:text-white'>{t('teamMembers')}</th>
+                                <th className='p-3 dark:text-white'>{t('actions')}</th>
                             </tr>
-                        )}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {filteredProjects.map((project, index) => (
+                                <tr key={project.id} className='border-t hover:bg-gray-50 dark:hover:bg-gray-700'>
+                                    <td className='p-3 dark:text-white'>{index + 1}</td>
+                                    <td className='p-3 font-medium dark:text-white'>
+                                        <span
+                                        className="cursor-pointer hover:underline"
+                                        onClick={() => handleProjectNavigation(project?.id)}
+                                        >
+                                        {project?.title}
+                                        </span>
+                                    </td>
+                                    <td className='p-3 dark:text-white'>{project?.services}</td>
+                                    <td className='p-3 dark:text-white'>{project?.members}</td>
+                                    <td className='p-3 space-x-3'>
+                                        <Link to={`/project/edit/${project?.id}`}>
+                                            <button className="text-blue-500 hover:underline hover:cursor-pointer">{t('edit')}</button>
+                                        </Link>
+                                        <button className="text-red-500 hover:underline hover:cursor-pointer" onClick={() => handleDelete(project.id)}>{t('delete')}</button>
+                                    </td>
+                                </tr>
+                            ))}
+
+                            {filteredProjects.length === 0 && (
+                                <tr>
+                                    <td colSpan={5} className='text-center p-4 text-gray-500 dark:text-gray-200'>
+                                        {t('noProjectsFound')}
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
       </div>
