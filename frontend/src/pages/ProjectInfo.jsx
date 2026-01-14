@@ -79,10 +79,19 @@ const ProjectInfo = () => {
       <div className="flex flex-1">
         <Sidebar />
         <main className="flex-1 p-6 bg-gray-50 space-y-6 dark:bg-gray-700">
-            <div className='flex justify-between'>
-                <h1 className='text-2xl font-semibold dark:text-white'>{t('projectInfo')}</h1>
-                <button className='border rounded bg-blue-500 text-white p-2 hover:bg-blue-700 hover:cursor-pointer' onClick={downloadProjectInfo}>{t('downloadProjectInfo')}</button>
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+              <h1 className="text-xl md:text-2xl font-semibold dark:text-white">
+                {t('projectInfo')}
+              </h1>
+
+              <button
+                className="w-full sm:w-auto border rounded bg-blue-500 text-white px-4 py-2 hover:bg-blue-700"
+                onClick={downloadProjectInfo}
+              >
+                {t('downloadProjectInfo')}
+              </button>
             </div>
+
             <ProjectInfoCard project={project} />
         </main>
       </div>
